@@ -6,7 +6,7 @@ import { NAV_ITEMS } from '../../../../data/navitems.js'
 export default function MobileNav () {
   return (
     <Stack
-      bg={useColorModeValue('primary')}
+      bg={useColorModeValue('primary.light', 'primary.dark')}
       p={4}
       isplay={{ md: 'none' }}
     >

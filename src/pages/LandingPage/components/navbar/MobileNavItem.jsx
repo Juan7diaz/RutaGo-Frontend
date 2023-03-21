@@ -22,7 +22,7 @@ export default function MobileNavItem ({ label, children, href }) {
     >
         <Text
         fontWeight={600}
-        color={useColorModeValue('text')}
+        color={useColorModeValue('text.light', 'text.dark')}
         >
         <Link to={href ?? '#'}>
           {label}

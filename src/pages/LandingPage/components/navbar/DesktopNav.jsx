@@ -8,7 +8,7 @@ export default function DesktopNav () {
   return (
     <Stack direction={'row'} justify={'flex-end'} spacing={10} color={useColorModeValue('primary')}>
       {NAV_ITEMS.map((navItem) => (
-        <Box key={navItem.label} color={useColorModeValue('text')}>
+        <Box key={navItem.label} color={useColorModeValue('text.light', 'text.dark')}>
           <Link to={navItem.href ?? '#'}>
             {navItem.label}
           </Link>

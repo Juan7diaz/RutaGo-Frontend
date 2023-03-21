@@ -5,12 +5,13 @@ import {
   Flex,
   Text,
   Heading,
-  SimpleGrid
+  SimpleGrid,
+  useColorModeValue
 } from '@chakra-ui/react'
 
 export default function StatsGridWithImage () {
   return (
-    <Box bg={'gray.800'} position={'relative'} id="#conocenos">
+    <Box bg={useColorModeValue('primary.light', 'primary.dark')} position={'relative'} id="#conocenos">
       <Container maxW={'7xl'} zIndex={0} position={'relative'}>
         <Stack direction={{ base: 'column', lg: 'row' }}>
           <Stack
@@ -25,7 +26,7 @@ export default function StatsGridWithImage () {
                 mb={5}
                 fontSize={{ base: '3xl', md: '5xl' }}
               >
-                Nonmbre app
+                RUTA-GO
               </Heading>
               <Text fontSize={'xl'} color={'gray.400'}>
                 About es una plataforma creada como parte del trabajo de

@@ -20,9 +20,9 @@ export default function Navbar () {
 
   return (
     <div>
-      <Box style={{ position: 'fixed', width: '100%', zIndex: 9 }}>
+      <Box style={{ position: 'fixed', width: '100%', zIndex: 9 }} boxShadow='2xl'>
         <Flex
-          bg={useColorModeValue('primary')}
+          bg={useColorModeValue('primary.light', 'primary.dark')}
           color="gray.600"
           minH={'60px'}
           px={{ base: '30px', lg: '40px' }}
@@ -35,16 +35,16 @@ export default function Navbar () {
 
           >
             <IconButton
-              bg={useColorModeValue('text')}
+              bg={useColorModeValue('text.light', 'text.dark')}
               onClick={onToggle}
               variant={'ghost'}
               aria-label={'Toggle Navigation'}
               icon={
                 // eslint-disable-next-line multiline-ternary
                 isOpen ? (
-                  <Icon as={FiX} w={5} h={5} color={useColorModeValue('primary')}/>
+                  <Icon as={FiX} w={5} h={5} color={useColorModeValue('primary.light', 'primary.dark')}/>
                 ) : (
-                  <Icon as={FiMenu} w={5} h={5} color={useColorModeValue('primary')}/>
+                  <Icon as={FiMenu} w={5} h={5} color={useColorModeValue('primary.light', 'primary.dark')}/>
                 )
               }
             />
@@ -52,11 +52,11 @@ export default function Navbar () {
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
             <Heading
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-              color={useColorModeValue('text')}
+              color={useColorModeValue('text.light', 'text.dark')}
               as={'h1'}
               fontSize='20px'
             >
-              RUTAS BUSETAS
+              RUTA-GO
             </Heading>
           </Flex>
 

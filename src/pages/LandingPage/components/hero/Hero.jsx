@@ -18,8 +18,9 @@ export default function Hero () {
     <Container maxW={'7xl'}>
       <Stack
         align={'center'}
-        spacing={{ base: 8, md: 10 }}
-        py={{ base: 20, md: 28 }}
+        spacing={{ base: 18, md: 10 }}
+        py={{ base: 18, md: 40 }}
+        pb={{ base: 18, md: 32 }}
         direction={{ base: 'column', md: 'row' }}
       >
         <Stack flex={1} spacing={{ base: 5, md: 10 }}>
@@ -31,25 +32,13 @@ export default function Hero () {
             <Text
               as={'span'}
               position={'relative'}
-              _after={{
-                content: "''",
-                width: 'full',
-                height: '30%',
-                position: 'absolute',
-                bottom: 1,
-                left: 0,
-                bg: 'red.100',
-                zIndex: -1
-              }}
+              color={useColorModeValue('secondary.light', 'secondary.dark')}
             >
-              Descubre la red de transporte público de
+              Descubre la red de transporte público de Santa Marta
             </Text>
-            <br />
-            <Text as={'span'} color={'red.400'}>
-              Santa Marta
-            </Text>
+
           </Heading>
-          <Text color={'gray.500'}>
+          <Text color={useColorModeValue('darktext.light', 'darktext.dark')}>
             Descubre la amplia red de rutas de transporte público de pasajeros
             que se extienden por toda la ciudad de Santa Marta con nuestra guía
             completa. Obtén información detallada sobre las rutas, paradas y
@@ -66,7 +55,7 @@ export default function Hero () {
               fontWeight={'normal'}
               px={6}
               colorScheme={'red'}
-              bg={useColorModeValue('primary')}
+              bg={useColorModeValue('secondary.light', 'secondary.dark')}
               _hover={{ bg: 'red.500' }}
             >
               Ver en mapa
@@ -85,7 +74,7 @@ export default function Hero () {
             h={'150%'}
             position={'absolute'}
             zIndex={-1}
-            color={useColorModeValue('red.50', 'red.400')}
+            color={useColorModeValue('aux.blob.light', 'aux.blob.dark')}
           />
           <Box
             position={'relative'}
