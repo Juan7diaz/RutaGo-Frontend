@@ -1,6 +1,10 @@
+import Navbar from './components/navbar/Navbar.jsx'
+
 const index = () => {
   return (
-    <div>index del landing page</div>
+    <div>
+      <Navbar />
+    </div>
   )
 }
 
