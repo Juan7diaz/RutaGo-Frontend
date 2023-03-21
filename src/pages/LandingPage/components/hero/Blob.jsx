@@ -1,4 +1,4 @@
-import { Icon } from '@chakra-ui/react'
+import { Icon, useColorModeValue } from '@chakra-ui/react'
 
 const Blob = (props) => {
   return (
@@ -7,7 +7,11 @@ const Blob = (props) => {
       viewBox="0 0 578 440"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      {...props}
+      w={'100%'}
+      h={'150%'}
+      position={'absolute'}
+      zIndex={-1}
+      color={useColorModeValue('aux.blob.light', 'aux.blob.dark')}
     >
       <path
         fillRule="evenodd"
