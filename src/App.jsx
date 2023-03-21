@@ -1,9 +1,9 @@
-import Prueba from './components/Prueba'
+import { AppRouter } from './router/AppRouter'
 
 function App () {
   return (
-    <div className="App">
-      <Prueba mensaje="Hola mundo" nombre="Juan" edad="25" />
+    <div>
+      <AppRouter />
     </div>
   )
 }
