@@ -7,7 +7,6 @@ import {
   Text,
   Button,
   Image,
-  IconButton,
   useColorModeValue
 } from '@chakra-ui/react'
 import Blob from './Blob'
@@ -82,11 +81,11 @@ export default function Hero () {
           w={'full'}
         >
           <Blob
-            w={'150%'}
+            w={'100%'}
             h={'150%'}
             position={'absolute'}
             zIndex={-1}
-            color={useColorModeValue('red.100', 'red.400')}
+            color={useColorModeValue('red.50', 'red.400')}
           />
           <Box
             position={'relative'}
@@ -96,17 +95,6 @@ export default function Hero () {
             width={'full'}
             overflow={'hidden'}
           >
-            <IconButton
-              aria-label={'Play Button'}
-              variant={'ghost'}
-              _hover={{ bg: 'transparent' }}
-              size={'lg'}
-              color={'white'}
-              position={'absolute'}
-              left={'50%'}
-              top={'50%'}
-              transform={'translateX(-50%) translateY(-50%)'}
-            />
             <Image
               alt={'Hero Image'}
               align={'center'}
