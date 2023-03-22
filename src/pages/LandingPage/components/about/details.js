@@ -1,6 +1,6 @@
 const details = [
   {
-    title: 'Información actualizada',
+    title: 'Facilidad de uso',
     content: 'La plataforma ha sido diseñada pensando en la comodidad y facilidad de uso para los usuarios. La navegación intuitiva y las funcionalidades simples permiten a los usuarios encontrar rápidamente la información que necesitan.'
   },
   {

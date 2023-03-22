@@ -1,26 +1,22 @@
 import {
   Box,
   Flex,
-  IconButton,
   Stack,
-  Collapse,
-  Icon,
   useBreakpointValue,
   useColorModeValue,
-  useDisclosure,
   Heading
 } from '@chakra-ui/react'
-import { FiMenu, FiX } from 'react-icons/fi'
 
-import MobileNav from './MobileNav'
-import DesktopNav from './DesktopNav'
+import ItemsNav from './ItemsNav'
+import DrawerNav from './DrawerNav.jsx'
 
 export default function Navbar () {
-  const { isOpen, onToggle } = useDisclosure()
-
   return (
     <div>
-      <Box style={{ position: 'fixed', width: '100%', zIndex: 9 }} boxShadow='2xl'>
+      <Box
+        style={{ position: 'fixed', width: '100%', zIndex: 9 }}
+        boxShadow="2xl"
+      >
         <Flex
           bg={useColorModeValue('primary.light', 'primary.dark')}
           color="gray.600"
@@ -32,29 +28,15 @@ export default function Navbar () {
             flex={{ base: 1, md: 'auto' }}
             ml={{ base: -2 }}
             display={{ base: 'flex', md: 'none' }}
-
           >
-            <IconButton
-              bg={useColorModeValue('text.light', 'text.dark')}
-              onClick={onToggle}
-              variant={'ghost'}
-              aria-label={'Toggle Navigation'}
-              icon={
-                // eslint-disable-next-line multiline-ternary
-                isOpen ? (
-                  <Icon as={FiX} w={5} h={5} color={useColorModeValue('primary.light', 'primary.dark')}/>
-                ) : (
-                  <Icon as={FiMenu} w={5} h={5} color={useColorModeValue('primary.light', 'primary.dark')}/>
-                )
-              }
-            />
+            <DrawerNav />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
             <Heading
               textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
               color={useColorModeValue('text.light', 'text.dark')}
               as={'h1'}
-              fontSize='20px'
+              fontSize="20px"
             >
               RUTA-GO
             </Heading>
@@ -67,13 +49,10 @@ export default function Navbar () {
             spacing={6}
           >
             <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-              <DesktopNav />
+              <ItemsNav direction="row" />
             </Flex>
           </Stack>
         </Flex>
-        <Collapse in={isOpen} animateOpacity>
-          <MobileNav />
-        </Collapse>
       </Box>
     </div>
   )
