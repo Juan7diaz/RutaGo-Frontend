@@ -6,7 +6,6 @@ const ButtonHero = () => {
     <Stack
       spacing={{ base: 4, sm: 6 }}
       direction={{ base: 'column', sm: 'row' }}
-      pb={{ sm: 16 }}
     >
       <Button
         rounded={'full'}

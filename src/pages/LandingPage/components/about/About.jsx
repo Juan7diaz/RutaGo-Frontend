@@ -2,7 +2,6 @@ import {
   Stack,
   Container,
   Box,
-  Flex,
   SimpleGrid,
   useColorModeValue
 } from '@chakra-ui/react'
@@ -37,7 +36,6 @@ export default function StatsGridWithImage () {
               ))}
             </SimpleGrid>
           </Stack>
-          <Flex flex={1} />
         </Stack>
       </Container>
     </Box>
