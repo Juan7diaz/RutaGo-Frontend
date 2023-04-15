@@ -10,7 +10,7 @@ import { FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa'
 import Logo from './Logo'
 import SocialButton from './SocialButton'
 
-export default function SmallWithLogoLeft () {
+export default function Footer ({ marginT = 0 }) {
   return (
     <Box
       bg={useColorModeValue('primary.light', 'primary.dark')}
@@ -19,7 +19,7 @@ export default function SmallWithLogoLeft () {
       <Container
         as={Stack}
         maxW={'7xl'}
-        mt={20}
+        mt={marginT}
         py={8}
         direction={{ base: 'column', md: 'row' }}
         spacing={4}

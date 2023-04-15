@@ -14,5 +14,9 @@ export const NAV_ITEMS = [
   {
     label: 'mapa',
     href: '/map'
+  },
+  {
+    label: 'Login',
+    href: '/Login'
   }
 ]
