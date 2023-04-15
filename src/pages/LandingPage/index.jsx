@@ -13,7 +13,7 @@ const index = () => {
       <About />
       <FrequentQuestions />
       <Testimonials />
-      <Footer/>
+      <Footer marginT={20}/>
     </div>
   )
 }
