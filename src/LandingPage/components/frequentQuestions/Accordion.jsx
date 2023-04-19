@@ -6,7 +6,7 @@ import {
   AccordionPanel,
   Box
 } from '@chakra-ui/react'
-import { frequentQuestions } from '../../../../data/frequentQuestions'
+import { frequentQuestions } from '../../../data/frequentQuestions'
 
 const Accordion = () => {
   return (

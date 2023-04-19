@@ -6,7 +6,7 @@ import {
   Container,
   useColorModeValue
 } from '@chakra-ui/react'
-import { testimonials } from '../../../../data/testiminials'
+import { testimonials } from '../../../data/testiminials'
 import TestimonialAvatar from './TestimonialAvatar'
 import TestimonialContent from './TestimonialContent'
 import TestimonialHeading from './TestimonialHeading'

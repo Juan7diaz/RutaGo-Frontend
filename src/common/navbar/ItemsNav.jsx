@@ -2,7 +2,7 @@ import { Box, Stack, useColorModeValue } from '@chakra-ui/react'
 
 import { Link } from 'react-router-dom'
 
-import { NAV_ITEMS } from '../../../../data/navitems.js'
+import { NAV_ITEMS } from '../../data/navitems.js'
 
 export default function ItemsNav ({ direction, spacing = 10, ...props }) {
   return (
