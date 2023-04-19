@@ -12,11 +12,11 @@ export const NAV_ITEMS = [
     href: '#pqrs'
   },
   {
-    label: 'mapa',
+    label: 'Mapa',
     href: '/map'
   },
   {
     label: 'Login',
-    href: '/Login'
+    href: '/login'
   }
 ]
