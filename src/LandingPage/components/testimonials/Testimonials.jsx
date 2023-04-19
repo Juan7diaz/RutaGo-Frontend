@@ -15,7 +15,7 @@ import TestimonialText from './TestimonialText'
 export default function Testimonials () {
   return (
     <Box>
-      <Container maxW={'7xl'} py={5} as={Stack} spacing={12}>
+      <Container maxW={'7xl'} py={5} pb={20} as={Stack} spacing={12}>
         <Stack spacing={0}>
           <Heading
             color={useColorModeValue('secondary.light', 'secondary.dark')}

@@ -12,11 +12,11 @@ import {
   Text,
   useColorModeValue
 } from '@chakra-ui/react'
-import AuthLayout from '../layout/AuthLayout'
+import NavbarAndFooterLayout from '../../layout/NavbarAndFooterLayout'
 
 const LoginPage = () => {
   return (
-    <AuthLayout>
+    <NavbarAndFooterLayout>
       <Flex
         align={'center'}
         justify={'center'}
@@ -69,7 +69,7 @@ const LoginPage = () => {
           </Box>
         </Stack>
       </Flex>
-    </AuthLayout>
+    </NavbarAndFooterLayout>
   )
 }
 
