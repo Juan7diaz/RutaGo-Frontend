@@ -7,7 +7,7 @@ const Header = () => {
       <Heading color={'white'} mb={5} fontSize={{ base: '3xl', md: '5xl' }}>
         RUTA-GO
       </Heading>
-      <Text fontSize={'xl'} color={'gray.400'}>
+      <Text fontSize={'lg'} color={'gray.400'}>
         Es una plataforma creada como parte del trabajo de Universidad Del
         Magdalena, que tiene como objetivo ofrecer información detallada sobre
         las rutas de busetas en la ciudad de Santa Marta.

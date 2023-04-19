@@ -7,7 +7,7 @@ const Details = ({ title, content }) => {
       <Text fontFamily={'heading'} fontSize={'3xl'} color={'white'} mb={3}>
         {title}
       </Text>
-      <Text fontSize={'xl'} color={'gray.400'}>
+      <Text color={'gray.400'}>
         {content}
       </Text>
     </Box>
