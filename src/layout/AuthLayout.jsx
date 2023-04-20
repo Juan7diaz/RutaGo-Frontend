@@ -16,11 +16,9 @@ const AuthLayout = ({ children }) => {
       />
       <Stack spacing={8} mx={'auto'} maxW={'lg'} px={6} position={'absolute'}>
         <Box
-          width={'500px'}
-          height={'450px'}
           rounded={'lg'}
           boxShadow={'lg'}
-          p={8}
+          p={10}
           color={useColorModeValue('text.light', 'text.dark')}
           backgroundColor={useColorModeValue('primary.light', 'primary.dark')}
         >

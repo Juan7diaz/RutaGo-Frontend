@@ -4,10 +4,10 @@ import {
   FormLabel,
   Input,
   Stack,
-  Link,
   Button,
   Heading,
-  Text
+  Text,
+  useColorModeValue
 } from '@chakra-ui/react'
 import NavbarAndFooterLayout from '../../layout/NavbarAndFooterLayout'
 import AuthLayout from '../../layout/AuthLayout'
@@ -18,11 +18,9 @@ const RegisterPage = () => {
       <AuthLayout>
         <Stack spacing={4}>
           <Stack align={'center'}>
-            <Heading fontSize={'4xl'}>Pronto serás parte de nosotros</Heading>
+            <Heading fontSize={'4xl'}>PANTALLA DE REGISTRO</Heading>
             <Text fontSize={'lg'}>
-              Disfruta de diferentes{' '}
-              <Link color={'blue.400'}>funcionalidades</Link> de manera facil y
-              rápida! ✌️
+              Disfruta de diferentes funcionalidades de manera facil y rápida!
             </Text>
           </Stack>
           <FormControl id="email">
@@ -35,10 +33,9 @@ const RegisterPage = () => {
           </FormControl>
           <Stack>
             <Button
-              bg={'#E10856'}
-              color={'white'}
+              bg={useColorModeValue('secondary.light', 'secondary.dark')}
               _hover={{
-                bg: '#F74D8A'
+                bg: useColorModeValue('aux.ButtonHoverprimary.light', 'aux.ButtonHoverprimary.dark')
               }}
             >
               Sign in
