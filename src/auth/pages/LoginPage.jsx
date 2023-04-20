@@ -10,7 +10,8 @@ import {
   useColorModeValue,
   InputGroup,
   InputRightElement,
-  IconButton
+  IconButton,
+  useToast
 } from '@chakra-ui/react'
 import NavbarAndFooterLayout from '../../layout/NavbarAndFooterLayout'
 import AuthLayout from '../../layout/AuthLayout'
@@ -22,19 +23,26 @@ import { BiShowAlt, BiHide } from 'react-icons/bi'
 const LoginPage = () => {
   const { formState, onInputChange } = useForm({ email: '', password: '' })
   const { email, password } = formState
-  const navigate = useNavigate()
   const [show, setShow] = useState(false)
-  const [msg, setMsg] = useState('')
+  const navigate = useNavigate()
+  const toast = useToast()
+
   const handleClick = () => setShow(!show)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     if (!email.trim() || !password.trim()) {
-      setMsg('Email and password are required')
+      toast({
+        title: 'Error Campos Incompletos',
+        description: 'Por favor rellene todos los campos',
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+        position: 'bottom-right'
+      })
       return
     }
-    setMsg('')
 
     const auth = await authenticateUser({
       email: email.trim(),
@@ -42,11 +50,17 @@ const LoginPage = () => {
     })
 
     if (auth.ok) {
-      setMsg('')
       navigate('/map', { replace: true })
-    } else {
-      setMsg(auth.message)
     }
+
+    toast({
+      title: auth.ok ? 'Bienvenido' : 'Error',
+      description: auth.ok ? 'Sesión iniciada correctamente' : auth.message,
+      status: auth.ok ? 'success' : 'error',
+      duration: 9000,
+      isClosable: true,
+      position: 'bottom-right'
+    })
   }
 
   return (
@@ -107,10 +121,9 @@ const LoginPage = () => {
                 )
               }}
             >
-              Sign in
+              Iniciar Sesión
             </Button>
           </Stack>
-          <Text color="tomato" mb={3}>{msg}</Text>
         </Stack>
       </AuthLayout>
     </NavbarAndFooterLayout>
