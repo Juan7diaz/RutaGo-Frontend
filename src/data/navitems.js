@@ -17,6 +17,6 @@ export const NAV_ITEMS = [
   },
   {
     label: 'Login',
-    href: '/login'
+    href: '/auth/login'
   }
 ]
