@@ -4,15 +4,15 @@ const AuthLayout = ({ children }) => {
   return (
     <Flex align={'center'} justify={'center'}>
       <Box
+        mt={'50px'}
         width={'100vw'}
         height={'100vh'}
         backgroundImage={"url('/pictures/LoginBgDark.jpg')"}
         backgroundPosition={'center center'}
         backgroundRepeat={'no-repeat'}
-        backgroundAttachment={'fixed'}
         backgroundSize={'cover'}
         filter={'auto'}
-        blur={'0.6px'}
+        blur={'1.5px'}
       />
       <Stack spacing={8} mx={'auto'} maxW={'lg'} px={6} position={'absolute'}>
         <Box

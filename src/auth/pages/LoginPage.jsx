@@ -16,7 +16,7 @@ import {
 import NavbarAndFooterLayout from '../../layout/NavbarAndFooterLayout'
 import AuthLayout from '../../layout/AuthLayout'
 import { useForm } from '../../hooks/useForm'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { authenticateUser } from '../../services/auth'
 import { BiShowAlt, BiHide } from 'react-icons/bi'
 import AuthContext from '../../context/auth/AuthContext'
@@ -69,7 +69,7 @@ const LoginPage = () => {
   return (
     <NavbarAndFooterLayout>
       <AuthLayout>
-        <Stack spacing={4} as="form">
+        <Stack spacing={7} as="form">
           <Stack align={'center'}>
             <Heading fontSize={'4xl'} align={'center'}>
               Bienvenido de vuelta
@@ -127,6 +127,10 @@ const LoginPage = () => {
               Iniciar Sesión
             </Button>
           </Stack>
+          <Text>
+            ¿No tienes una cuenta?{' - '}
+            <Link to="/auth/register">Registrate</Link>
+          </Text>
         </Stack>
       </AuthLayout>
     </NavbarAndFooterLayout>
