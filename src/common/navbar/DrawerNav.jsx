@@ -29,7 +29,7 @@ function DrawerNav () {
           bgColor={useColorModeValue('primary.light', 'primary.dark')}
           color={useColorModeValue('text.light', 'text.dark')}
         >
-          <DrawerHeader borderBottomWidth="1px">RUTA-GO</DrawerHeader>
+          <DrawerHeader borderBottomWidth="1px">RUTAGO</DrawerHeader>
           <DrawerBody>
             <ItemsNav direction={'column'} spacing={7} pt={5} />
           </DrawerBody>

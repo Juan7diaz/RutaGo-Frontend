@@ -4,7 +4,9 @@ import {
   Stack,
   useBreakpointValue,
   useColorModeValue,
-  Heading
+  Heading,
+  Image,
+  Center
 } from '@chakra-ui/react'
 
 import ItemsNav from './ItemsNav'
@@ -32,14 +34,22 @@ export default function Navbar () {
             <DrawerNav />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Heading
-              textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-              color={useColorModeValue('text.light', 'text.dark')}
-              as={'h1'}
-              fontSize="20px"
-            >
-              RUTA-GO
-            </Heading>
+            <Center>
+              <Image
+                src="/pictures/logo.jpg"
+                alt="Logo RutaGo"
+                boxSize="35px"
+                />
+              <Heading
+                textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+                color={useColorModeValue('text.light', 'text.dark')}
+                as={'h1'}
+                ml={2}
+                fontSize="20px"
+                >
+                RUTAGO
+              </Heading>
+                </Center>
           </Flex>
 
           <Stack

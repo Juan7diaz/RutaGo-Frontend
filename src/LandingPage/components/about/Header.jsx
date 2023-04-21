@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <Box mb={{ base: 8, md: 20 }}>
       <Heading color={'white'} mb={5} fontSize={{ base: '3xl', md: '5xl' }}>
-        RUTA-GO
+        RUTAGO
       </Heading>
       <Text fontSize={'lg'} color={'gray.400'}>
         Es una plataforma creada como parte del trabajo de Universidad Del
