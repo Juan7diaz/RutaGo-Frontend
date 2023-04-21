@@ -1,12 +1,11 @@
+import { useContext } from 'react'
 import { Navigate } from 'react-router-dom'
+import AuthContext from '../context/auth/AuthContext'
 
 const PublicRoute = ({ children }) => {
-  const getCredentials = () => {
-    const credentials = JSON.parse(localStorage.getItem('credentials'))
-    return credentials
-  }
+  const { getSession } = useContext(AuthContext)
 
-  return !getCredentials() ? children : <Navigate to="/app" />
+  return !getSession() ? children : <Navigate to="/app/map" />
 }
 
 export default PublicRoute
