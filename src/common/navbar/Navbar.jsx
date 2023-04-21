@@ -8,6 +8,7 @@ import {
   Image,
   Center
 } from '@chakra-ui/react'
+import { Link } from 'react-router-dom'
 
 import ItemsNav from './ItemsNav'
 import DrawerNav from './DrawerNav.jsx'
@@ -34,22 +35,24 @@ export default function Navbar () {
             <DrawerNav />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-            <Center>
-              <Image
-                src="/pictures/logo.jpg"
-                alt="Logo RutaGo"
-                boxSize="35px"
+            <Link to="/">
+              <Center>
+                <Image
+                  src="/pictures/logo.jpg"
+                  alt="Logo RutaGo"
+                  boxSize="35px"
                 />
-              <Heading
-                textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-                color={useColorModeValue('text.light', 'text.dark')}
-                as={'h1'}
-                ml={2}
-                fontSize="20px"
+                <Heading
+                  textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
+                  color={useColorModeValue('text.light', 'text.dark')}
+                  as={'h1'}
+                  ml={2}
+                  fontSize="20px"
                 >
-                RUTAGO
-              </Heading>
-                </Center>
+                  RUTAGO
+                </Heading>
+              </Center>
+            </Link>
           </Flex>
 
           <Stack
