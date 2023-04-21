@@ -13,7 +13,7 @@ export const NAV_ITEMS = [
   },
   {
     label: 'Mapa',
-    href: '/map'
+    href: '/app/map'
   },
   {
     label: 'Login',

@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import {
   FormControl,
   FormLabel,
@@ -19,8 +19,10 @@ import { useForm } from '../../hooks/useForm'
 import { useNavigate } from 'react-router-dom'
 import { authenticateUser } from '../../services/auth'
 import { BiShowAlt, BiHide } from 'react-icons/bi'
+import AuthContext from '../../context/auth/AuthContext'
 
 const LoginPage = () => {
+  const { saveSession } = useContext(AuthContext)
   const { formState, onInputChange } = useForm({ email: '', password: '' })
   const { email, password } = formState
   const [show, setShow] = useState(false)
@@ -50,7 +52,8 @@ const LoginPage = () => {
     })
 
     if (auth.ok) {
-      navigate('/map', { replace: true })
+      saveSession(auth)
+      navigate('/app/map', { replace: true })
     }
 
     toast({
