@@ -20,10 +20,6 @@ const colors = {
     dark: '#5f5f5f'
   },
   aux: {
-    blob: {
-      light: '#f2632791',
-      dark: '#f2632791'
-    },
     ButtonHoverprimary: {
       light: '#ff8f00',
       dark: '#ff8f00'

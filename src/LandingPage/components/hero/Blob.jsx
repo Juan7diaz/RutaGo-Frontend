@@ -11,7 +11,8 @@ const Blob = (props) => {
       h={'150%'}
       position={'absolute'}
       zIndex={-1}
-      color={useColorModeValue('aux.blob.light', 'aux.blob.dark')}
+      color={useColorModeValue('secondary.light', 'secondary.dark')}
+      {...props}
     >
       <path
         fillRule="evenodd"
