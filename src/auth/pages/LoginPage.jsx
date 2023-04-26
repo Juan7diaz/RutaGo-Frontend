@@ -6,9 +6,9 @@ import { useForm } from '../../hooks/useForm'
 import { Link, useNavigate } from 'react-router-dom'
 import { authenticateUser } from '../../services/auth'
 import AuthContext from '../../context/auth/AuthContext'
-import ButtonForm from '../../common/ui/ButtonForm'
-import InputForm from '../../common/ui/InputForm'
-import HeadingForm from '../../common/ui/HeadingForm'
+import ButtonForm from '../../common/form/ButtonForm'
+import InputForm from '../../common/form/InputForm'
+import HeadingForm from '../../common/form/HeadingForm'
 
 const LoginPage = () => {
   const { saveSession } = useContext(AuthContext)
@@ -76,13 +76,11 @@ const LoginPage = () => {
             value={password}
             onInputChange={onInputChange}
           />
-          <Stack>
-            <ButtonForm
-              type="submit"
-              handleSubmit={handleSubmit}
-              label="Iniciar Sesión"
-            />
-          </Stack>
+          <ButtonForm
+            type="submit"
+            handleSubmit={handleSubmit}
+            label="Iniciar Sesión"
+          />
           <Text>
             ¿No tienes una cuenta?{' - '}
             <Link to="/auth/register">Registrate</Link>
