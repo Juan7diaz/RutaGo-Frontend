@@ -2,28 +2,59 @@ import {
   Stack,
   Button,
   Text,
-  useColorModeValue
+  useColorModeValue,
+  useToast
 } from '@chakra-ui/react'
 import NavbarAndFooterLayout from '../../layout/NavbarAndFooterLayout'
 import AuthLayout from '../../layout/AuthLayout'
 import { useForm } from '../../hooks/useForm'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import HeadingForm from '../../common/form/HeadingForm'
 import InputForm from '../../common/form/InputForm'
+import { createUser } from '../../services/userServices'
 
 const RegisterPage = () => {
-  const { formState, onInputChange } = useForm({
+  const toast = useToast()
+  const navigate = useNavigate()
+  const { formState, onInputChange, onResetForm } = useForm({
     firstName: '',
     lastName: '',
     email: '',
     password: ''
   })
+
   const { firstName, lastName, email, password } = formState
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log('Formulario enviado')
-    console.log(formState)
+    if (firstName.trim() === '' || lastName.trim() === '' || email.trim() === '' || password.trim() === '') {
+      toast({
+        title: 'Campos Incompletos',
+        description: 'Por favor rellene todos los campos',
+        status: 'error',
+        duration: 9000,
+        isClosable: true,
+        position: 'bottom-right'
+      })
+      return
+    }
+
+    const response = await createUser(formState)
+
+    toast({
+      title: response.ok ? 'Registro existoso' : 'Error',
+      description: response.message,
+      status: response.ok ? 'success' : 'error',
+      duration: 9000,
+      isClosable: true,
+      position: 'bottom-right'
+    })
+
+    if (response.ok) {
+      console.log('Registro existoso')
+      navigate('/auth/login', { replace: true })
+      onResetForm()
+    }
   }
 
   return (
@@ -43,7 +74,7 @@ const RegisterPage = () => {
             onInputChange={onInputChange}
           />
           <InputForm
-            label="Apellido"
+            label="Apellidos"
             type="text"
             name="lastName"
             placeholder="Diaz"
@@ -51,7 +82,7 @@ const RegisterPage = () => {
             onInputChange={onInputChange}
           />
           <InputForm
-            label="Correo"
+            label="Correo Electrónico"
             type="email"
             name="email"
             placeholder="juandiaz@gmail.com"
