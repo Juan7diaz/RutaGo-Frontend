@@ -2,6 +2,7 @@ import { useEffect, useContext, useState } from 'react'
 import { Box, Heading, Text, VStack } from '@chakra-ui/react'
 import AuthContext from '../../../context/auth/AuthContext'
 import PopoverForm from './PopoverForm'
+import DengerZone from './DengerZone'
 
 const EditProfile = () => {
   const { getSession } = useContext(AuthContext)
@@ -14,7 +15,9 @@ const EditProfile = () => {
   return (
     <Box>
       <Box py={5}>
-        <Heading size="lg">Editar Perfil</Heading>
+        <Heading size="lg" pb={1}>
+          Editar Perfil
+        </Heading>
         <Text fontSize="md">Aquí podrás editar tu perfil</Text>
       </Box>
       <VStack spacing={3} align="stretch">
@@ -52,6 +55,7 @@ const EditProfile = () => {
           />
         </Box>
       </VStack>
+      <DengerZone />
     </Box>
   )
 }
