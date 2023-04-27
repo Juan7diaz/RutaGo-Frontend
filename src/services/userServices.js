@@ -33,9 +33,9 @@ export const createUser = async (user) => {
   }
 }
 
-export const updateUser = async (id, user) => {
+export const updateUser = async (id, data) => {
   try {
-    const response = await axios.put(`${BASE_URL}${id}/`, user)
+    const response = await axios.put(`${BASE_URL_WITH_AUTH}${id}/`, data)
     return response.data
   } catch (error) {
     console.log(error)
