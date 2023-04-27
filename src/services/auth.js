@@ -9,5 +9,6 @@ export const authenticateUser = async (credentials) => {
     return response.data
   } catch (error) {
     console.log(error)
+    return error.response.data
   }
 }
