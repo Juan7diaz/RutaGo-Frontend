@@ -1,10 +1,17 @@
+import { Center } from '@chakra-ui/react'
 import NavbarAndFooterLayout from '../../layout/NavbarAndFooterLayout'
-import { Text } from '@chakra-ui/react'
 
 const Map = () => {
   return (
     <NavbarAndFooterLayout>
-      <Text pt={20} textAlign={['top', 'center']} textShadow='1px 1px #ff0000'> ventana del map fresquisima</Text>
+      <Center>
+        <img
+          src="https://img.freepik.com/vector-gratis/plantilla-plana-construccion_23-2147739035.jpg?w=2000"
+          alt="Mapa"
+          border="0"
+          style={{ width: '50%', height: '50%' }}
+        />
+      </Center>
     </NavbarAndFooterLayout>
   )
 }
