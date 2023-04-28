@@ -5,7 +5,7 @@ import {
   MenuItem,
   IconButton
 } from '@chakra-ui/react'
-import { IoMdPerson, IoMdExit, IoMdCreate } from 'react-icons/io'
+import { IoMdPerson, IoMdExit, IoMdCreate, IoMdHome, IoMdMap } from 'react-icons/io'
 import { useContext } from 'react'
 import AuthContext from '../../context/auth/AuthContext.jsx'
 import { useNavigate, Link } from 'react-router-dom'
@@ -30,6 +30,12 @@ const MenuDropdown = () => {
       <MenuList>
         <MenuItem icon={<IoMdCreate />} as={Link} to="/app/profile">
             Ver perfil
+        </MenuItem>
+        <MenuItem icon={<IoMdMap />} as={Link} to="/app/map">
+            Mostrar Mapa
+        </MenuItem>
+        <MenuItem icon={<IoMdHome />} as={Link} to="/">
+            Pagina de inicio
         </MenuItem>
         <MenuItem icon={<IoMdExit />} onClick={handleLogout} >
             Cerrar Sesión
