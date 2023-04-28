@@ -1,7 +1,6 @@
 import axios from 'axios'
-import BASE_URL from './url'
 
-const BASE_URL_WITH_AUTH = BASE_URL + '/auth'
+const BASE_URL_WITH_AUTH = import.meta.env.VITE_BASE_URL_API + '/auth'
 
 export const authenticateUser = async (credentials) => {
   try {
