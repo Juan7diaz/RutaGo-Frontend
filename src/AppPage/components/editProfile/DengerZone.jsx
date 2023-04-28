@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Spacer, Text, Heading } from '@chakra-ui/react'
+import { Box, Button, SimpleGrid, Text, Heading } from '@chakra-ui/react'
 import React from 'react'
 import Modal from './Modal'
 
@@ -15,7 +15,7 @@ const DengerZone = () => {
         Denger Zone
       </Heading>
       <Box p={6} border="1px" borderColor="red.500" borderRadius="7px">
-        <Flex minWidth="max-content">
+        <SimpleGrid columns={[1, null, 2]} spacingY={5}>
           <Box>
             <Text as="b">Eliminar esta cuenta</Text>
             <Text>
@@ -23,7 +23,6 @@ const DengerZone = () => {
               esté seguro.
             </Text>
           </Box>
-          <Spacer />
           <Box>
             <Button
               color="red"
@@ -40,7 +39,7 @@ const DengerZone = () => {
             isOpen={isOpen}
             setIsOpen={setIsOpen}
           />
-        </Flex>
+        </SimpleGrid>
       </Box>
     </Box>
   )
