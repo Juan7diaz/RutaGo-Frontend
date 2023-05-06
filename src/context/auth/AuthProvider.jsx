@@ -1,22 +1,22 @@
 import AuthContext from './AuthContext'
 
 const AuthProvider = ({ children }) => {
-  const saveSession = (user) => {
-    localStorage.setItem('userSession', JSON.stringify(user))
+  const saveSession = (item, user) => {
+    localStorage.setItem(item, JSON.stringify(user))
   }
 
-  const removeSession = () => {
-    localStorage.removeItem('userSession')
+  const removeSession = (item) => {
+    localStorage.removeItem(item)
   }
 
-  const updateSession = (user) => {
-    const userSession = getSession()
+  const updateSession = (item, user) => {
+    const userSession = getSession(item)
     const newUserSession = { ...userSession, user }
     saveSession(newUserSession)
   }
 
-  const getSession = () => {
-    const userSession = localStorage.getItem('userSession')
+  const getSession = (item) => {
+    const userSession = localStorage.getItem(item)
     return userSession ? JSON.parse(userSession) : null
   }
 

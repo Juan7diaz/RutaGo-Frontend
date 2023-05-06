@@ -9,6 +9,7 @@ import AuthContext from '../../context/auth/AuthContext'
 import ButtonForm from '../../common/form/ButtonForm'
 import InputForm from '../../common/form/InputForm'
 import HeadingForm from '../../common/form/HeadingForm'
+import { USER_SESSION, USER_TOKEN } from '../../types/localstorage.type'
 
 const LoginPage = () => {
   const { saveSession } = useContext(AuthContext)
@@ -32,20 +33,21 @@ const LoginPage = () => {
       return
     }
 
-    const auth = await authenticateUser({
+    const response = await authenticateUser({
       email: email.trim(),
       password: password.trim()
     })
 
-    if (auth.ok) {
-      saveSession(auth)
+    if (response.ok) {
+      saveSession(USER_SESSION, response.user)
+      saveSession(USER_TOKEN, response.token)
       navigate('/app/map', { replace: true })
     }
 
     toast({
-      title: auth.ok ? 'Bienvenido' : 'Error',
-      description: auth.ok ? 'Sesión iniciada correctamente' : auth.message,
-      status: auth.ok ? 'success' : 'error',
+      title: response.ok ? 'Bienvenido' : 'Error',
+      description: response.ok ? 'Sesión iniciada correctamente' : response.message,
+      status: response.ok ? 'success' : 'error',
       duration: 9000,
       isClosable: true,
       position: 'bottom-right'

@@ -4,12 +4,13 @@ import MenuDropdown from './MenuDropdown.jsx'
 import AuthContext from '../../context/auth/AuthContext.jsx'
 import { Link } from 'react-router-dom'
 import { NAV_ITEMS } from '../../data/navitems.js'
+import { USER_SESSION } from '../../types/localstorage.type.js'
 
 // todo: corregir este archivo
 export default function ItemsNav ({ direction, spacing = 10, ...props }) {
   const { getSession } = useContext(AuthContext)
 
-  const isLogged = NAV_ITEMS.map((navItem) => (
+  const navItems = NAV_ITEMS.map((navItem) => (
     <Box
       key={navItem.label}
       color={useColorModeValue('text.light', 'text.dark')}
@@ -30,7 +31,7 @@ export default function ItemsNav ({ direction, spacing = 10, ...props }) {
       color={useColorModeValue('primary.light', 'primary.dark')}
       {...props}
     >
-      {!getSession() ? isLogged : <MenuDropdown />}
+      {!getSession(USER_SESSION) ? navItems : <MenuDropdown />}
     </Stack>
   )
 }
