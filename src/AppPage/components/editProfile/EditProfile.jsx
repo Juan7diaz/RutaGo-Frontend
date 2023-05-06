@@ -1,16 +1,21 @@
-import { useEffect, useContext, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Box, Heading, Text, VStack } from '@chakra-ui/react'
-import AuthContext from '../../../context/auth/AuthContext'
 import PopoverForm from './PopoverForm'
 import DengerZone from './DengerZone'
+import { getUser } from '../../../services/userServices'
 
 const EditProfile = () => {
-  const { getSession } = useContext(AuthContext)
   const [dataUser, setDataUser] = useState({})
 
+  const getUserData = async () => {
+    const user = await getUser()
+    console.log(user)
+    setDataUser(user)
+  }
+
   useEffect(() => {
-    setDataUser(getSession())
-  }, [getSession()])
+    getUserData()
+  }, [])
 
   return (
     <Box>
