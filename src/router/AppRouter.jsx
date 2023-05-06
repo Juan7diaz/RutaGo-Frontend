@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import LandingPage from '../LandingPage'
 import Page404 from '../common/Page404/Page404'
-import AuthRoutes from '../auth/router/AuthRoutes'
+import AuthRoutes from '../authPage/router/AuthRoutes'
 import AppPageRouter from '../AppPage/router/AppPageRouter'
 import PublicRoute from './PublicRoute'
 import PrivateRoute from './PrivateRoute'
