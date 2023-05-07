@@ -14,7 +14,7 @@ import {
   useToast
 } from '@chakra-ui/react'
 import { updateUser } from '../../../services/userServices'
-const ModalForm = ({ isOpen, onClose, label, keyDB, data }) => {
+const ModalForm = ({ isOpen, onClose, label, keyDB, data, setReloadUserData }) => {
   const initialRef = React.useRef(null)
   const toast = useToast()
 
@@ -43,6 +43,7 @@ const ModalForm = ({ isOpen, onClose, label, keyDB, data }) => {
       position: 'bottom-right'
     })
     initialRef.current.value = ''
+    setReloadUserData(prevValue => !prevValue)
     onClose()
   }
 

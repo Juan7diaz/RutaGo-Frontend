@@ -2,7 +2,7 @@ import { Text, IconButton, useDisclosure } from '@chakra-ui/react'
 import { FiEdit } from 'react-icons/fi'
 import ModalForm from './ModalForm'
 
-const InputText = ({ label, keyDB, data }) => {
+const InputText = ({ label, keyDB, data, setReloadUserData }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
@@ -17,7 +17,7 @@ const InputText = ({ label, keyDB, data }) => {
         fontSize='15px'
         icon={<FiEdit/>}
       />
-      <ModalForm isOpen={isOpen} onClose={onClose} label={label} keyDB={keyDB} data={data}/>
+      <ModalForm isOpen={isOpen} onClose={onClose} label={label} keyDB={keyDB} data={data} setReloadUserData={setReloadUserData}/>
     </Text>
   )
 }

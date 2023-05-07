@@ -6,6 +6,7 @@ import InputText from './InputText'
 
 const EditProfile = () => {
   const [dataUser, setDataUser] = useState({})
+  const [reloadUserData, setReloadUserData] = useState(false) // no es lo mejor, pero por ahora funciona
 
   const getUserData = async () => {
     const user = await getUser()
@@ -14,7 +15,8 @@ const EditProfile = () => {
 
   useEffect(() => {
     getUserData()
-  }, [])
+    console.log('hola')
+  }, [reloadUserData])
 
   return (
     <Box>
@@ -30,6 +32,7 @@ const EditProfile = () => {
             label="Primer Nombre"
             keyDB="firstName"
             data={dataUser?.user?.firstName}
+            setReloadUserData = {setReloadUserData}
           />
         </Box>
         <Box>
@@ -37,6 +40,7 @@ const EditProfile = () => {
             label="Primer Apellido"
             keyDB="lastName"
             data={dataUser?.user?.lastName}
+            setReloadUserData = {setReloadUserData}
           />
         </Box>
         <Box>
@@ -44,6 +48,7 @@ const EditProfile = () => {
             label="Correo Electronico"
             keyDB="email"
             data={dataUser?.user?.email}
+            setReloadUserData = {setReloadUserData}
           />
         </Box>
         <Box>
@@ -51,6 +56,7 @@ const EditProfile = () => {
             label="Contraseña"
             keyDB="password"
             data={'**********'}
+            setReloadUserData = {setReloadUserData}
           />
         </Box>
       </VStack>
