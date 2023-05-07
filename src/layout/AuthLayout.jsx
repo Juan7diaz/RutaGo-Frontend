@@ -7,7 +7,7 @@ const AuthLayout = ({ children }) => {
         mt={'50px'}
         width={'100vw'}
         height={'100vh'}
-        backgroundImage={"url('/pictures/LoginBgDark.jpg')"}
+        backgroundImage={"url('/pictures/LoginBgDark.jpeg')"}
         backgroundPosition={'center center'}
         backgroundRepeat={'no-repeat'}
         backgroundSize={'cover'}

@@ -38,7 +38,7 @@ export default function Navbar () {
             <Link to="/">
               <Center>
                 <Image
-                  src="/pictures/logo.jpg"
+                  src="/pictures/logo.jpeg"
                   alt="Logo RutaGo"
                   boxSize="35px"
                 />

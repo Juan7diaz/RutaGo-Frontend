@@ -8,7 +8,7 @@ import {
 const Logo = () => {
   return (
     <Center>
-      <Image src="/pictures/logo.jpg" alt="Logo RutaGo" boxSize="35px" />
+      <Image src="/pictures/logo.jpeg" alt="Logo RutaGo" boxSize="35px" />
       <Heading
         textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
         color={useColorModeValue('text.light', 'text.dark')}
