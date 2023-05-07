@@ -1,13 +1,13 @@
+import React from 'react'
 import {
-  Modal as ChakraModal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Button,
-  useToast
+  AlertDialog,
+  AlertDialogBody,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogContent,
+  AlertDialogOverlay,
+  useToast,
+  Button
 } from '@chakra-ui/react'
 import { deleteUser } from '../../../services/userServices'
 import { useNavigate } from 'react-router-dom'
@@ -16,10 +16,10 @@ import { USER_SESSION, USER_TOKEN } from '../../../types/localstorage.type'
 const openAlertDialog = ({ title, subtitle, isOpen, setIsOpen }) => {
   const navigate = useNavigate()
   const toast = useToast()
+  const cancelRef = React.useRef()
 
   const handleDelete = async () => {
-    const userID = JSON.parse(localStorage.getItem(USER_SESSION))?.id
-    const response = await deleteUser(userID)
+    const response = await deleteUser()
     if (response.ok) {
       localStorage.removeItem(USER_SESSION)
       localStorage.removeItem(USER_TOKEN)
@@ -37,22 +37,32 @@ const openAlertDialog = ({ title, subtitle, isOpen, setIsOpen }) => {
   }
 
   return (
-    <ChakraModal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-      <ModalOverlay />
-      <ModalContent>
-        <ModalHeader>{title}</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>{subtitle}</ModalBody>
-        <ModalFooter>
-          <Button mr={3} onClick={() => setIsOpen(false)}>
-            Cancelar
-          </Button>
-          <Button colorScheme="red" variant="outline" onClick={handleDelete}>
-            Eliminar
-          </Button>
-        </ModalFooter>
-      </ModalContent>
-    </ChakraModal>
+    <AlertDialog
+      isOpen={isOpen}
+      leastDestructiveRef={cancelRef}
+      onClose={() => setIsOpen(false)}
+    >
+      <AlertDialogOverlay>
+        <AlertDialogContent>
+          <AlertDialogHeader fontSize="lg" fontWeight="bold">
+            {title}
+          </AlertDialogHeader>
+
+          <AlertDialogBody>
+            {subtitle}
+          </AlertDialogBody>
+
+          <AlertDialogFooter>
+            <Button ref={cancelRef} onClick={() => setIsOpen(false)}>
+              Cancelar
+            </Button>
+            <Button colorScheme="red" onClick={handleDelete} ml={3}>
+              Eliminar
+            </Button>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialogOverlay>
+    </AlertDialog>
   )
 }
 

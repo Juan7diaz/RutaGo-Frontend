@@ -47,7 +47,8 @@ export const updateUser = async (data) => {
 
 export const deleteUser = async (id) => {
   try {
-    const response = await axios.delete(`${BASE_URL_WITH_USER}${id}/`)
+    const TOKEN = localStorage.getItem(USER_TOKEN)
+    const response = await axios.delete(BASE_URL_WITH_USER, { headers: { 'rutago-token': TOKEN } })
     return response.data
   } catch (error) {
     console.log(error)
