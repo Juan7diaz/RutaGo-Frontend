@@ -14,7 +14,7 @@ import {
   useToast
 } from '@chakra-ui/react'
 import { updateUser } from '../../../services/userServices'
-const ModalForm = ({ isOpen, onClose, label, keyDB }) => {
+const ModalForm = ({ isOpen, onClose, label, keyDB, data }) => {
   const initialRef = React.useRef(null)
   const toast = useToast()
 
@@ -61,7 +61,7 @@ const ModalForm = ({ isOpen, onClose, label, keyDB }) => {
         <ModalBody pb={6}>
           <FormControl>
             <FormLabel>{label}</FormLabel>
-            <Input ref={initialRef} placeholder="First name" />
+            <Input ref={initialRef} placeholder={data} />
           </FormControl>
         </ModalBody>
         <ModalFooter>
