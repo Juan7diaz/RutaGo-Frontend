@@ -1,4 +1,3 @@
-import { useContext } from 'react'
 import {
   Modal as ChakraModal,
   ModalOverlay,
@@ -11,19 +10,19 @@ import {
   useToast
 } from '@chakra-ui/react'
 import { deleteUser } from '../../../services/userServices'
-import AuthContext from '../../../context/auth/AuthContext'
 import { useNavigate } from 'react-router-dom'
+import { USER_SESSION, USER_TOKEN } from '../../../types/localstorage.type'
 
 const Modal = ({ title, subtitle, isOpen, setIsOpen }) => {
-  const { removeSession, getSession } = useContext(AuthContext)
   const navigate = useNavigate()
   const toast = useToast()
 
   const handleDelete = async () => {
-    const userID = getSession()?.user?.id
+    const userID = JSON.parse(localStorage.getItem(USER_SESSION))?.id
     const response = await deleteUser(userID)
     if (response.ok) {
-      removeSession()
+      localStorage.removeItem(USER_SESSION)
+      localStorage.removeItem(USER_TOKEN)
       navigate('/', { replace: true })
     }
     toast({

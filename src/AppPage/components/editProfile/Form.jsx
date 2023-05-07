@@ -1,12 +1,10 @@
-import { useEffect, useState, useContext } from 'react'
+import { useEffect, useState } from 'react'
 import { Button, ButtonGroup, Stack, useToast } from '@chakra-ui/react'
 import TextInput from './TextInput'
 import { updateUser } from '../../../services/userServices'
-import AuthContext from '../../../context/auth/AuthContext'
 
 const Form = ({ firstFieldRef, onCancel, defaultValue, label, keyDB, userID }) => {
   const [prevValue, setPrevValue] = useState('')
-  const { updateSession } = useContext(AuthContext)
   const toats = useToast()
 
   useEffect(() => {
@@ -19,7 +17,6 @@ const Form = ({ firstFieldRef, onCancel, defaultValue, label, keyDB, userID }) =
     const response = await updateUser(userID, payload)
 
     if (response.ok) {
-      updateSession(response.user)
       onCancel()
     }
 

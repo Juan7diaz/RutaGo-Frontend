@@ -1,14 +1,12 @@
-import { useContext } from 'react'
 import { Box, Stack, useColorModeValue } from '@chakra-ui/react'
 import MenuDropdown from './MenuDropdown.jsx'
-import AuthContext from '../../context/auth/AuthContext.jsx'
 import { Link } from 'react-router-dom'
 import { NAV_ITEMS } from '../../data/navitems.js'
 import { USER_SESSION } from '../../types/localstorage.type.js'
 
 // todo: corregir este archivo
 export default function ItemsNav ({ direction, spacing = 10, ...props }) {
-  const { getSession } = useContext(AuthContext)
+  const session = JSON.parse(localStorage.getItem(USER_SESSION))
 
   const navItems = NAV_ITEMS.map((navItem) => (
     <Box
@@ -31,7 +29,7 @@ export default function ItemsNav ({ direction, spacing = 10, ...props }) {
       color={useColorModeValue('primary.light', 'primary.dark')}
       {...props}
     >
-      {!getSession(USER_SESSION) ? navItems : <MenuDropdown />}
+      {!session ? navItems : <MenuDropdown />}
     </Stack>
   )
 }

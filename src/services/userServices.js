@@ -15,7 +15,7 @@ export const getUsers = async () => {
 
 export const getUser = async () => {
   try {
-    const TOKEN = localStorage.getItem(USER_TOKEN).substring(1, localStorage.getItem(USER_TOKEN).length - 1)
+    const TOKEN = localStorage.getItem(USER_TOKEN)
     const response = await axios.get(BASE_URL_WITH_USER, { headers: { 'rutago-token': TOKEN } })
     return response?.data
   } catch (error) {

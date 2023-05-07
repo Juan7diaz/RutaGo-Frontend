@@ -1,18 +1,15 @@
-import { useContext } from 'react'
 import { Stack, Text, useToast } from '@chakra-ui/react'
 import NavbarAndFooterLayout from '../../layout/NavbarAndFooterLayout'
 import AuthLayout from '../../layout/AuthLayout'
 import { useForm } from '../../hooks/useForm'
 import { Link, useNavigate } from 'react-router-dom'
 import { authenticateUser } from '../../services/auth'
-import AuthContext from '../../context/auth/AuthContext'
 import ButtonForm from '../../common/form/ButtonForm'
 import InputForm from '../../common/form/InputForm'
 import HeadingForm from '../../common/form/HeadingForm'
 import { USER_SESSION, USER_TOKEN } from '../../types/localstorage.type'
 
 const LoginPage = () => {
-  const { saveSession } = useContext(AuthContext)
   const { formState, onInputChange } = useForm({ email: '', password: '' })
   const { email, password } = formState
   const navigate = useNavigate()
@@ -39,8 +36,8 @@ const LoginPage = () => {
     })
 
     if (response.ok) {
-      saveSession(USER_SESSION, response.user)
-      saveSession(USER_TOKEN, response.token)
+      localStorage.setItem(USER_SESSION, JSON.stringify(response.user))
+      localStorage.setItem(USER_TOKEN, response.token)
       navigate('/app/map', { replace: true })
     }
 
