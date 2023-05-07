@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react'
 import { deleteUser } from '../../../services/userServices'
 import { useNavigate } from 'react-router-dom'
-import { USER_SESSION, USER_TOKEN } from '../../../types/localstorage.type'
+import { USER_SESSION, USER_TOKEN } from '../../../types/localstorage.type.js'
 
 const openAlertDialog = ({ title, subtitle, isOpen, setIsOpen }) => {
   const navigate = useNavigate()
