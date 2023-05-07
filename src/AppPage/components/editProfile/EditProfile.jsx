@@ -1,15 +1,14 @@
 import { useEffect, useState } from 'react'
 import { Box, Heading, Text, VStack } from '@chakra-ui/react'
-import PopoverForm from './PopoverForm'
 import DengerZone from './DengerZone'
 import { getUser } from '../../../services/userServices'
+import InputText from './InputText'
 
 const EditProfile = () => {
   const [dataUser, setDataUser] = useState({})
 
   const getUserData = async () => {
     const user = await getUser()
-    console.log(user)
     setDataUser(user)
   }
 
@@ -27,36 +26,31 @@ const EditProfile = () => {
       </Box>
       <VStack spacing={3} align="stretch">
         <Box>
-          <PopoverForm
+          <InputText
             label="Primer Nombre"
             keyDB="firstName"
-            userID={dataUser?.user?.id}
             data={dataUser?.user?.firstName}
           />
         </Box>
         <Box>
-          <PopoverForm
+          <InputText
             label="Primer Apellido"
             keyDB="lastName"
-            userID={dataUser?.user?.id}
             data={dataUser?.user?.lastName}
           />
         </Box>
         <Box>
-          <PopoverForm
+          <InputText
             label="Correo Electronico"
             keyDB="email"
-            userID={dataUser?.user?.id}
             data={dataUser?.user?.email}
           />
         </Box>
         <Box>
-          <PopoverForm
+          <InputText
             label="Contraseña"
             keyDB="password"
-            userID={dataUser?.user?.id}
             data={'**********'}
-            empty={true}
           />
         </Box>
       </VStack>

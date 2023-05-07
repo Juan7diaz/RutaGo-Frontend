@@ -1,11 +1,11 @@
 import { Box, Button, SimpleGrid, Text, Heading } from '@chakra-ui/react'
 import React from 'react'
-import Modal from './Modal'
+import AlertDialog from './AlertDialog'
 
 const DengerZone = () => {
   const [isOpen, setIsOpen] = React.useState(false)
 
-  const openModal = () => {
+  const openAlertDialog = () => {
     setIsOpen(true)
   }
 
@@ -28,12 +28,12 @@ const DengerZone = () => {
               color="red"
               colorScheme="red"
               variant="outline"
-              onClick={openModal}
+              onClick={openAlertDialog}
             >
               Eliminar Cuenta
             </Button>
           </Box>
-          <Modal
+          <AlertDialog
             title="Eliminar Cuenta"
             subtitle="¿Estás seguro de eliminar tu cuenta?"
             isOpen={isOpen}

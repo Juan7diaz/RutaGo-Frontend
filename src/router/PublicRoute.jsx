@@ -1,8 +1,8 @@
 import { Navigate } from 'react-router-dom'
-import { USER_SESSION } from '../types/localstorage.type'
+import { USER_TOKEN } from '../types/localstorage.type'
 
 const PublicRoute = ({ children }) => {
-  const session = Boolean(localStorage.getItem(USER_SESSION))
+  const session = Boolean(localStorage.getItem(USER_TOKEN))
 
   return !session ? children : <Navigate to="/app/map" />
 }

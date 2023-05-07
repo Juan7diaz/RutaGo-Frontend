@@ -34,9 +34,10 @@ export const createUser = async (user) => {
   }
 }
 
-export const updateUser = async (id, data) => {
+export const updateUser = async (data) => {
   try {
-    const response = await axios.put(`${BASE_URL_WITH_USER}${id}/`, data)
+    const TOKEN = localStorage.getItem(USER_TOKEN)
+    const response = await axios.put(BASE_URL_WITH_USER, data, { headers: { 'rutago-token': TOKEN } })
     return response.data
   } catch (error) {
     console.log(error)

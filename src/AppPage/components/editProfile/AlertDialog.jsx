@@ -13,7 +13,7 @@ import { deleteUser } from '../../../services/userServices'
 import { useNavigate } from 'react-router-dom'
 import { USER_SESSION, USER_TOKEN } from '../../../types/localstorage.type'
 
-const Modal = ({ title, subtitle, isOpen, setIsOpen }) => {
+const openAlertDialog = ({ title, subtitle, isOpen, setIsOpen }) => {
   const navigate = useNavigate()
   const toast = useToast()
 
@@ -56,4 +56,4 @@ const Modal = ({ title, subtitle, isOpen, setIsOpen }) => {
   )
 }
 
-export default Modal
+export default openAlertDialog
