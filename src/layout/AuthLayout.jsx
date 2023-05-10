@@ -4,7 +4,6 @@ const AuthLayout = ({ children }) => {
   return (
     <Flex align={'center'} justify={'center'}>
       <Box
-        mt={'50px'}
         width={'100vw'}
         height={'100vh'}
         backgroundImage={"url('/pictures/LoginBgDark.jpeg')"}

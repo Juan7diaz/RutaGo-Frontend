@@ -67,6 +67,7 @@ export default function Navbar () {
           </Stack>
         </Flex>
       </Box>
+      <Box h="60px" />
     </div>
   )
 }

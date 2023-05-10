@@ -14,7 +14,7 @@ export default function Hero () {
       <Stack
         align={'center'}
         spacing={{ base: 18, md: 10 }}
-        py={{ base: 28, md: 40 }}
+        py={{ base: 10, md: 20 }}
         pb={{ base: 28, md: 32 }}
         direction={{ base: 'column', md: 'row' }}
       >

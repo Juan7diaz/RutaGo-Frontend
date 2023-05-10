@@ -24,7 +24,7 @@ const arrTabs = [
 const Profile = () => {
   return (
     <NavbarAndFooterLayout>
-      <Container maxW={'7xl'} pb={120} pt={28}>
+      <Container maxW={'7xl'} pb={120} pt={20}>
         <Tabs
           variant="enclosed"
           colorScheme={useColorModeValue('secondary.light', 'secondary.light')}
