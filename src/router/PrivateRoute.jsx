@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom'
-import { USER_TOKEN } from '../types/localstorage.type.js'
+import { USER_TOKEN } from '../types/localStorage.js'
 
 const PrivateRoute = ({ children }) => {
   const session = Boolean(localStorage.getItem(USER_TOKEN))

@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { USER_TOKEN } from '../types/localstorage.type.js'
+import { USER_TOKEN } from '../types/localStorage.js'
 
 const BASE_URL_WITH_USER = import.meta.env.VITE_BASE_URL_API + '/user/'
 

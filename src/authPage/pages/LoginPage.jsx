@@ -7,7 +7,7 @@ import { authenticateUser } from '../../services/auth'
 import ButtonForm from '../../common/form/ButtonForm'
 import InputForm from '../../common/form/InputForm'
 import HeadingForm from '../../common/form/HeadingForm'
-import { USER_SESSION, USER_TOKEN } from '../../types/localstorage.type.js'
+import { USER_SESSION, USER_TOKEN } from '../../types/localStorage.js'
 
 const LoginPage = () => {
   const { formState, onInputChange } = useForm({ email: '', password: '' })

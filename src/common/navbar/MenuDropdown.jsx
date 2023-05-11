@@ -7,7 +7,7 @@ import {
 } from '@chakra-ui/react'
 import { IoMdPerson, IoMdExit, IoMdCreate, IoMdHome, IoMdMap } from 'react-icons/io'
 import { useNavigate, Link } from 'react-router-dom'
-import { USER_SESSION, USER_TOKEN } from '../../types/localstorage.type.js'
+import { USER_SESSION, USER_TOKEN } from '../../types/localStorage.js'
 
 const MenuDropdown = () => {
   const navigate = useNavigate()
