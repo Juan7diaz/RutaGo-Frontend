@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom'
 import Admin from '../admin/Admin'
-import Map from '../map/Map'
-import Profile from '../map/Profile'
+import Map from '../app/Map'
+import Profile from '../app/Profile'
 import Page404 from '../../common/Page404/Page404'
 
 const AppPageRouter = () => {
