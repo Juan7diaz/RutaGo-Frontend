@@ -16,11 +16,13 @@ import { createUser } from '../../services/userServices'
 const RegisterPage = () => {
   const toast = useToast()
   const navigate = useNavigate()
+  const USER_ROLE = 1
   const { formState, onInputChange, onResetForm } = useForm({
     firstName: '',
     lastName: '',
     email: '',
-    password: ''
+    password: '',
+    role: USER_ROLE
   })
 
   const { firstName, lastName, email, password } = formState
