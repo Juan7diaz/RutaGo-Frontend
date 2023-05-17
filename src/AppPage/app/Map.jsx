@@ -1,30 +1,28 @@
-import react from 'react'
+import React from 'react'
 
 import Navbar from '../../common/navbar/Navbar'
 import MapView from '../components/mapView/MapView'
 import Sidebar from '../components/sidebar/Sidebar'
-import { getBusroutes } from '../../services/busroute'
+import { BusRoutesContext } from '../../context/BusRoutesProvider'
 
 const Map = () => {
-  const [routes, setRoutes] = react.useState([])
-  const [selectedRoute, setSelectedRoute] = react.useState(0)
+  const { updateRoutes, busRouteLoading } = React.useContext(BusRoutesContext)
+  console.log('se ha llamado')
 
-  react.useEffect(() => {
-    console.log('llamado use effect')
-    const getDataRoutes = async () => {
-      const response = await getBusroutes()
-      setRoutes(response.routes)
+  React.useEffect(() => {
+    const getRoute = async () => {
+      updateRoutes()
     }
-    getDataRoutes()
+    getRoute()
   }, [])
 
   return (
     <>
       <Navbar />
-      { routes.length === 0
+      { busRouteLoading
         ? <div>Loading...</div>
-        : <Sidebar routes={routes} setSelectedRoute={setSelectedRoute}>
-          <MapView routes={routes} selectedRoute={selectedRoute}/>
+        : <Sidebar >
+          <MapView />
         </Sidebar>
       }
 

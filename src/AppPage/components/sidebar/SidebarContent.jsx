@@ -1,8 +1,12 @@
+import React from 'react'
 import { Box, CloseButton, Flex, useColorModeValue } from '@chakra-ui/react'
 import { FaRoute } from 'react-icons/fa'
 import NavItem from './NavItem'
+import { BusRoutesContext } from '../../../context/BusRoutesProvider'
 
-const SidebarContent = ({ onClose, routes, setSelectedRoute, ...rest }) => {
+const SidebarContent = ({ onClose, ...rest }) => {
+  const { busRoutes } = React.useContext(BusRoutesContext)
+
   return (
     <Box
       bg={useColorModeValue('white', 'gray.900')}
@@ -16,8 +20,8 @@ const SidebarContent = ({ onClose, routes, setSelectedRoute, ...rest }) => {
       <Flex alignItems="center" mx="8" justifyContent="space-between">
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
-      {routes && routes.map((route, idx) => (
-        <NavItem key={route.id} icon={FaRoute} idx={idx} setSelectedRoute={setSelectedRoute}>
+      {busRoutes && busRoutes.map((route, idx) => (
+        <NavItem key={route.id} icon={FaRoute} idx={idx}>
           {route.name}
         </NavItem>
       ))}

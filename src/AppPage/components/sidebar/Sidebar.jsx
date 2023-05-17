@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   Box,
   useColorModeValue,
@@ -7,16 +8,18 @@ import {
 } from '@chakra-ui/react'
 import SidebarContent from './SidebarContent'
 import MobileNav from './MobileNav'
+import { BusRoutesContext } from '../../../context/BusRoutesProvider'
 
-export default function Sidebar ({ children, routes, setSelectedRoute }) {
+const Sidebar = ({ children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  const { busRoutes } = React.useContext(BusRoutesContext)
+
   return (
     <Box bg={useColorModeValue('gray.100', 'gray.900')} style={{ zIndex: 10 }}>
       <SidebarContent
         onClose={() => onClose}
         display={{ base: 'none', md: 'block' }}
-        routes={routes}
-        setSelectedRoute={setSelectedRoute}
+        routes={busRoutes}
       />
       <Drawer
         autoFocus={false}
@@ -27,7 +30,7 @@ export default function Sidebar ({ children, routes, setSelectedRoute }) {
         onOverlayClick={onClose}
         size="xs">
         <DrawerContent>
-          <SidebarContent onClose={onClose} routes={routes} setSelectedRoute={setSelectedRoute}/>
+          <SidebarContent onClose={onClose} />
         </DrawerContent>
       </Drawer>
       {/* mobilenav */}
@@ -38,3 +41,5 @@ export default function Sidebar ({ children, routes, setSelectedRoute }) {
     </Box>
   )
 }
+
+export default Sidebar

@@ -1,13 +1,13 @@
+import React from 'react'
 import { Flex, Icon } from '@chakra-ui/react'
+import { BusRoutesContext } from '../../../context/BusRoutesProvider'
 
-const NavItem = ({ icon, idx, setSelectedRoute, children, ...rest }) => {
-  const handleClick = () => {
-    setSelectedRoute(idx)
-  }
+const NavItem = ({ icon, idx, children, ...rest }) => {
+  const { setSelectedRoute } = React.useContext(BusRoutesContext)
 
   return (
       <Flex
-        onClick={handleClick}
+        onClick={() => setSelectedRoute(idx) }
         align="center"
         p="4"
         mx="4"
