@@ -4,10 +4,10 @@ import Navbar from '../../common/navbar/Navbar'
 import MapView from '../components/mapView/MapView'
 import Sidebar from '../components/sidebar/Sidebar'
 import { BusRoutesContext } from '../../context/BusRoutesProvider'
+import Loader from '../../common/loader/loader'
 
 const Map = () => {
   const { updateRoutes, busRouteLoading } = React.useContext(BusRoutesContext)
-  console.log('se ha llamado')
 
   React.useEffect(() => {
     const getRoute = async () => {
@@ -18,14 +18,10 @@ const Map = () => {
 
   return (
     <>
-      <Navbar />
       { busRouteLoading
-        ? <div>Loading...</div>
-        : <Sidebar >
-          <MapView />
-        </Sidebar>
+        ? <Loader />
+        : <><Navbar /> <Sidebar ><MapView /></Sidebar></>
       }
-
     </>
   )
 }

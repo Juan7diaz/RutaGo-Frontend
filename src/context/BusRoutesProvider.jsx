@@ -12,6 +12,7 @@ export const UserProvider = ({ children }) => {
     setBusRouteLoading(true)
     const response = await getBusroutes()
     setBusRoutes(response.routes)
+    // await new Promise(resolve => setTimeout(resolve, 3000)) // esto es solo demotración (se debe permanecer comentada la linea)
     setBusRouteLoading(false)
   }
 
