@@ -8,8 +8,8 @@ import {
 import 'leaflet/dist/leaflet.css'
 import { BusRoutesContext } from '../../../context/BusRoutesProvider'
 import { mapViewOptions } from './mapViewOptions'
+import './mapView.css'
 
-// eslint-disable-next-line react/display-name
 const MapView = () => {
   const { style, center, zoom, tileLayerrl } = mapViewOptions
 
