@@ -5,7 +5,7 @@ import NavItem from './NavItem'
 import { BusRoutesContext } from '../../../context/BusRoutesProvider'
 
 const SidebarContent = ({ onClose, ...rest }) => {
-  const { busRoutes } = React.useContext(BusRoutesContext)
+  const { busRoutes, selectedRoute } = React.useContext(BusRoutesContext)
 
   return (
     <Box
@@ -21,7 +21,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {busRoutes && busRoutes.map((route, idx) => (
-        <NavItem key={route.id} icon={FaRoute} idx={idx}>
+        <NavItem key={route.id} icon={FaRoute} idx={idx} mt={1} bg={idx === selectedRoute && 'secondary.light' } color={idx === selectedRoute && 'white'}>
           {route.name}
         </NavItem>
       ))}
