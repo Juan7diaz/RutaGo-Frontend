@@ -12,7 +12,7 @@ const DengerZone = () => {
   return (
     <Box mt={14}>
       <Heading size="lg" pb={4}>
-        Denger Zone
+        Danger Zone
       </Heading>
       <Box p={6} border="1px" borderColor="red.500" borderRadius="7px">
         <SimpleGrid columns={[1, null, 2]} spacingY={5}>
