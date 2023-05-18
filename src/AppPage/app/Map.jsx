@@ -4,7 +4,7 @@ import Navbar from '../../common/navbar/Navbar'
 import MapView from '../components/mapView/MapView'
 import Sidebar from '../components/sidebar/Sidebar'
 import { BusRoutesContext } from '../../context/BusRoutesProvider'
-import Loader from '../../common/loader/loader'
+import Loader from '../../common/loader/Loader'
 
 const Map = () => {
   const { updateRoutes, busRouteLoading } = React.useContext(BusRoutesContext)
