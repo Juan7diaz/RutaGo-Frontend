@@ -5,6 +5,9 @@ import { BrowserRouter } from 'react-router-dom'
 import { ChakraProvider } from '@chakra-ui/react'
 import { theme } from '../theme/theme.js'
 import { UserProvider } from './context/BusRoutesProvider'
+import { AxiosInterceptor } from './services/axios.interceptor'
+
+AxiosInterceptor()
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
