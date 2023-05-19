@@ -11,6 +11,8 @@ export const getUser = async () => {
 }
 
 export const createUser = async (user) => {
+  console.log('create')
+  console.log('URL', BASE_URL_WITH_USER)
   return await axios.post(BASE_URL_WITH_USER, user)
 }
 

@@ -5,7 +5,7 @@ import {
   MenuItem,
   IconButton
 } from '@chakra-ui/react'
-import { IoMdPerson, IoMdExit, IoMdCreate, IoMdHome, IoMdMap } from 'react-icons/io'
+import { IoMdPerson, IoMdExit, IoMdCreate, IoMdHome, IoMdMap, IoMdPie } from 'react-icons/io'
 import { useNavigate, Link } from 'react-router-dom'
 import { USER_SESSION, USER_TOKEN } from '../../types/localStorage.js'
 
@@ -27,6 +27,9 @@ const MenuDropdown = () => {
         colorScheme='orange'
       />
       <MenuList>
+        <MenuItem icon={<IoMdPie />} as={Link} to="/app/admin">
+            Panel Admin
+        </MenuItem>
         <MenuItem icon={<IoMdCreate />} as={Link} to="/app/profile">
             Ver perfil
         </MenuItem>
