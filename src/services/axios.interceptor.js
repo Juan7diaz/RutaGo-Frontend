@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { USER_TOKEN } from '../types/localStorage'
+import { removeToken } from '../helpers/removeToken'
 
 export const AxiosInterceptor = () => {
   const updateHeader = (req) => {
@@ -13,7 +14,7 @@ export const AxiosInterceptor = () => {
   }
 
   axios.interceptors.request.use((req) => {
-    console.log('resquest interceptor', req)
+    console.log('request interceptor', req)
     return updateHeader(req)
   })
 
@@ -23,8 +24,14 @@ export const AxiosInterceptor = () => {
       return res.data
     },
     (err) => {
-      console.log('response interceptor', err)
-      return err.response.data
+      console.log('(ERROR) response interceptor', err)
+      if (err?.response?.statusText === 'Unauthorized') {
+        removeToken()
+        // es una forma de redireccionar ( no es la mejor, pero funciona )(cambiar en futuras versiones)
+        window.location.href = '/auth/login'
+        return Promise.reject(err)
+      }
+      return err?.response?.data
     }
   )
 }
