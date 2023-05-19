@@ -1,14 +1,6 @@
-import {
-  Tabs,
-  TabList,
-  TabPanels,
-  Tab,
-  TabPanel,
-  useColorModeValue,
-  Container
-} from '@chakra-ui/react'
 import NavbarAndFooterLayout from '../../layout/NavbarAndFooterLayout'
 import EditProfile from '../components/editProfile/EditProfile'
+import PanelTabs from '../components/panel/PanelTabs'
 
 const arrTabs = [
   {
@@ -24,25 +16,7 @@ const arrTabs = [
 const Profile = () => {
   return (
     <NavbarAndFooterLayout>
-      <Container maxW={'7xl'} pb={120} pt={20}>
-        <Tabs
-          variant="enclosed"
-          colorScheme={useColorModeValue('secondary.light', 'secondary.light')}
-          size="md"
-          isLazy
-        >
-          <TabList>
-            {arrTabs.map((tab, index) => (
-              <Tab key={index}>{tab.name}</Tab>
-            ))}
-          </TabList>
-          <TabPanels>
-            {arrTabs.map((tab, index) => (
-              <TabPanel key={index}>{tab.content}</TabPanel>
-            ))}
-          </TabPanels>
-        </Tabs>
-      </Container>
+      <PanelTabs arrTabs={arrTabs}/>
     </NavbarAndFooterLayout>
   )
 }
