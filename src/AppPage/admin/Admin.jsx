@@ -1,22 +1,23 @@
 import React from 'react'
 import NavbarAndFooterLayout from '../../layout/NavbarAndFooterLayout'
 import PanelTabs from '../components/panel/PanelTabs'
+import TableBusRoute from './TableBusRoute'
 
 const arrTabs = [
   {
     name: 'Usuarios',
-    content: 'Pepe'
+    content: 'tabla de usuarios'
   },
   {
     name: 'Rutas',
-    content: 'Aqui van las rutas favoritas'
+    content: <TableBusRoute />
   },
   {
     name: 'Comentarios',
-    content: ''
+    content: 'tabla de comentarios'
   }, {
     name: 'Rol',
-    content: ''
+    content: 'tabla de rol'
   }
 ]
 
