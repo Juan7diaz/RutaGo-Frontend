@@ -19,14 +19,12 @@ const TableGeneric = ({
   columns = [],
   rows = [],
   isEditable = true,
-  isRemovable = true
+  isRemovable = true,
+  handleDelete,
+  handleUpdate
 }) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
   const [rowSelect, setRowSelect] = useState({})
-
-  const handleDelete = () => {
-    console.log('delete')
-  }
 
   const handleEdit = (e, row) => {
     setRowSelect(row)
@@ -60,7 +58,7 @@ const TableGeneric = ({
         </Tbody>
       </Table>
     </TableContainer>
-    <DrawerEdit isOpen={isOpen} onClose={onClose} header={'Panel de edición'} data={rowSelect}/>
+     {isOpen && <DrawerEdit isOpen={isOpen} onClose={onClose} header={'Panel de edición'} data={rowSelect} handleUpdate={handleUpdate} /> }
     </>
   )
 }

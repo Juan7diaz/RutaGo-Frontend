@@ -9,3 +9,11 @@ export const getBusroutes = async () => {
 export const getBusroute = async (id) => {
   return await axios.get(`${BASE_URL_WITH_AUTH}/${id}`)
 }
+
+export const createBusroute = async (busroute) => {
+  return await axios.post(BASE_URL_WITH_AUTH, busroute)
+}
+
+export const updateBusroute = async (data) => {
+  return await axios.put(BASE_URL_WITH_AUTH, data)
+}
