@@ -11,7 +11,6 @@ import {
 import { Link } from 'react-router-dom'
 
 import ItemsNav from './ItemsNav'
-import DrawerNav from './DrawerNav.jsx'
 
 export default function Navbar () {
   return (
@@ -27,14 +26,7 @@ export default function Navbar () {
           px={{ base: '30px', lg: '40px' }}
           align={'center'}
         >
-          <Flex
-            flex={{ base: 1, md: 'auto' }}
-            ml={{ base: -2 }}
-            display={{ base: 'flex', md: 'none' }}
-          >
-            <DrawerNav />
-          </Flex>
-          <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
+          <Flex flex={{ base: 1 }} justify={'start'}>
             <Link to="/">
               <Center>
                 <Image
@@ -61,9 +53,7 @@ export default function Navbar () {
             direction={'row'}
             spacing={6}
           >
-            <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
-              <ItemsNav direction="row" />
-            </Flex>
+            <ItemsNav direction="row" />
           </Stack>
         </Flex>
       </Box>
