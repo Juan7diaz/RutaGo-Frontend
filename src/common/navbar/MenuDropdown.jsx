@@ -5,8 +5,16 @@ import {
   MenuItem,
   IconButton
 } from '@chakra-ui/react'
-import { IoMdPerson, IoMdExit, IoMdCreate, IoMdHome, IoMdMap, IoMdPie } from 'react-icons/io'
+import {
+  IoMdPerson,
+  IoMdExit,
+  IoMdCreate,
+  IoMdHome,
+  IoMdMap,
+  IoMdPie
+} from 'react-icons/io'
 import { useNavigate, Link } from 'react-router-dom'
+import { decodedToken } from '../../helpers/decodedToken.js'
 import { USER_SESSION, USER_TOKEN } from '../../types/localStorage.js'
 
 const MenuDropdown = () => {
@@ -18,29 +26,34 @@ const MenuDropdown = () => {
     navigate('/')
   }
 
+  const { role } = decodedToken(localStorage.getItem(USER_TOKEN))
+
   return (
     <Menu>
       <MenuButton
         as={IconButton}
         aria-label="Options"
         icon={<IoMdPerson />}
-        colorScheme='orange'
+        colorScheme="orange"
       />
       <MenuList>
-        <MenuItem icon={<IoMdPie />} as={Link} to="/app/admin">
+        {role === 'ADMIN' && (
+          <MenuItem icon={<IoMdPie />} as={Link} to="/app/admin">
             Panel Admin
-        </MenuItem>
+          </MenuItem>
+        )}
+
         <MenuItem icon={<IoMdCreate />} as={Link} to="/app/profile">
-            Ver perfil
+          Ver perfil
         </MenuItem>
         <MenuItem icon={<IoMdMap />} as={Link} to="/app/map">
-            Mostrar Mapa
+          Mostrar Mapa
         </MenuItem>
         <MenuItem icon={<IoMdHome />} as={Link} to="/">
-            Pagina de inicio
+          Pagina de inicio
         </MenuItem>
-        <MenuItem icon={<IoMdExit />} onClick={handleLogout} >
-            Cerrar Sesión
+        <MenuItem icon={<IoMdExit />} onClick={handleLogout}>
+          Cerrar Sesión
         </MenuItem>
       </MenuList>
     </Menu>

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 import { NAV_ITEMS } from '../../data/navitems.js'
 import { USER_SESSION } from '../../types/localStorage.js'
 
-// todo: corregir este archivo
 export default function ItemsNav ({ direction, spacing = 10, ...props }) {
   const session = JSON.parse(localStorage.getItem(USER_SESSION))
 
