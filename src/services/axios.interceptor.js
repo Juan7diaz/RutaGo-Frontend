@@ -25,7 +25,7 @@ export const AxiosInterceptor = () => {
     },
     (err) => {
       console.log('(ERROR) response interceptor', err)
-      if (err?.response?.data?.error?.message === 'jwt expired') {
+      if (err?.response?.data?.message === 'Token no valido') {
         removeToken()
         // es una forma de redireccionar ( no es la mejor, pero funciona )(cambiar en futuras versiones)
         window.location.href = '/'
