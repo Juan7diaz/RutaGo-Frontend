@@ -6,7 +6,7 @@ export const BusRoutesContext = React.createContext()
 export const UserProvider = ({ children }) => {
   const [busRoutes, setBusRoutes] = React.useState([])
   const [busRouteLoading, setBusRouteLoading] = React.useState(true)
-  const [selectedRoute, setSelectedRoute] = React.useState(0)
+  const [selectedRoute, setSelectedRoute] = React.useState(-1)
 
   const updateRoutes = async () => {
     setBusRouteLoading(true)

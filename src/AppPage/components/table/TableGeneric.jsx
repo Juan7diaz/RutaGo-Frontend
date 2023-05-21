@@ -10,15 +10,14 @@ import {
   TableContainer
 } from '@chakra-ui/react'
 import { truncateText } from '../../../helpers/truncateText'
-import DrawerEdit from './DrawerAdmin'
 import AlertDialog from '../AlertDialog/AlertDialog'
 import { AiOutlineEdit } from 'react-icons/ai'
+import DrawerAdmin from './DrawerAdmin'
 
 const TableGeneric = ({
   caption,
   columns = [],
   rows = [],
-
   handleDelete,
   handleUpdate
 }) => {
@@ -41,10 +40,10 @@ const TableGeneric = ({
               <Tr key={index}>
                 {handleUpdate && (
                   <Td>
-                    <DrawerEdit
+                    <DrawerAdmin
                       colorScheme={'blue'}
                       header={'Panel de edición'}
-                      data={row}
+                      initialForm={row}
                       handleAction={handleUpdate}
                       icon={<AiOutlineEdit />}
                     />
