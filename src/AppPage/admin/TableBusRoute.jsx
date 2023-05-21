@@ -23,15 +23,13 @@ const TableBusRoute = () => {
   }
 
   const handleUpdate = async (data) => {
-    const response = await updateBusroute(data)
+    await updateBusroute(data)
     setCheckAgain(!checkAgain)
-    console.log('handleUpdate', response)
   }
 
   const handleDelete = async (id) => {
-    const response = await deleteBusroute(id)
+    await deleteBusroute(id)
     setCheckAgain(!checkAgain)
-    console.log('handleDelete', response)
   }
 
   return (

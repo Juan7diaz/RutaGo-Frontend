@@ -10,11 +10,15 @@ import {
   Input,
   Stack,
   FormLabel,
-  Box
+  Box,
+  IconButton,
+  useDisclosure
 } from '@chakra-ui/react'
 import { useForm } from '../../../hooks/useForm'
 
-const DrawerEdit = ({ isOpen, onClose, header, data = {}, handleUpdate }) => {
+const DrawerAdmin = ({ header, initialForm = {}, handleAction, icon, colorScheme }) => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
   const removeQuotes = (str = '') => {
     return str.replace(/['"]+/g, '')
   }
@@ -25,9 +29,8 @@ const DrawerEdit = ({ isOpen, onClose, header, data = {}, handleUpdate }) => {
   }
 
   const handleSave = () => {
-    handleUpdate(formState)
+    handleAction(formState)
     onClose()
-    onResetForm()
   }
 
   const handleCancel = () => {
@@ -35,10 +38,16 @@ const DrawerEdit = ({ isOpen, onClose, header, data = {}, handleUpdate }) => {
     onResetForm()
   }
 
-  const { formState, onInputChange, onResetForm } = useForm(data)
+  const { formState, onInputChange, onResetForm } = useForm(initialForm)
 
   return (
     <>
+      <IconButton
+        onClick={onOpen}
+        colorScheme={colorScheme}
+        aria-label={'Boton para arir el drawer'}
+        icon={icon}
+      />
       <Drawer
         size={'md'}
         isOpen={isOpen}
@@ -51,7 +60,7 @@ const DrawerEdit = ({ isOpen, onClose, header, data = {}, handleUpdate }) => {
           <DrawerHeader>{header}</DrawerHeader>
           <DrawerBody>
             <Stack spacing="24px">
-              {Object.keys(data).map((item, index) => (
+              {Object.keys(formState).map((item, index) => (
                 <Box key={index}>
                   <FormLabel htmlFor="username">{item}</FormLabel>
                   <Input
@@ -79,4 +88,4 @@ const DrawerEdit = ({ isOpen, onClose, header, data = {}, handleUpdate }) => {
   )
 }
 
-export default DrawerEdit
+export default DrawerAdmin

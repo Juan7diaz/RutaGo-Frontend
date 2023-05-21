@@ -7,7 +7,6 @@ import {
   AlertDialogOverlay,
   Button,
   useDisclosure,
-  Td,
   IconButton
 } from '@chakra-ui/react'
 import React from 'react'
@@ -23,7 +22,7 @@ const AlertDialog = ({ handleDelete, id }) => {
   }
 
   return (
-    <Td>
+    <>
       <IconButton
         m={0}
         p={0}
@@ -59,7 +58,7 @@ const AlertDialog = ({ handleDelete, id }) => {
           </AlertDialogContent>
         </AlertDialogOverlay>
       </AlertDialogChakra>
-    </Td>
+    </>
   )
 }
 

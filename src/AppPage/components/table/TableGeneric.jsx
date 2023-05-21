@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import {
   Table,
   Thead,
@@ -7,12 +7,10 @@ import {
   Th,
   Td,
   TableCaption,
-  TableContainer,
-  useDisclosure,
-  IconButton
+  TableContainer
 } from '@chakra-ui/react'
 import { truncateText } from '../../../helpers/truncateText'
-import DrawerEdit from './DrawerEdit'
+import DrawerEdit from './DrawerAdmin'
 import AlertDialog from '../AlertDialog/AlertDialog'
 import { AiOutlineEdit } from 'react-icons/ai'
 
@@ -25,15 +23,6 @@ const TableGeneric = ({
   handleDelete,
   handleUpdate
 }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
-
-  const [rowSelect, setRowSelect] = useState({})
-
-  const openDrawerEdit = (row) => {
-    setRowSelect(row)
-    onOpen()
-  }
-
   return (
     <>
       <TableContainer>
@@ -52,20 +41,20 @@ const TableGeneric = ({
             {rows.map((row, index) => (
               <Tr key={index}>
                 {isEditable && (
-                    <Td>
-                    <IconButton
-                      onClick={() => openDrawerEdit(row) }
+                  <Td>
+                    <DrawerEdit
                       colorScheme={'blue'}
-                      aria-label={'boton para editar'}
-                      icon={<AiOutlineEdit/>}
+                      header={'Panel de edición'}
+                      initialForm={row}
+                      handleAction={handleUpdate}
+                      icon={<AiOutlineEdit />}
                     />
                   </Td>
                 )}
                 {isRemovable && (
-                  <AlertDialog
-                    id={row?.id}
-                    handleDelete={handleDelete}
-                  />
+                  <Td>
+                    <AlertDialog id={row?.id} handleDelete={handleDelete} />
+                  </Td>
                 )}
                 {columns.map((column, columnIndex) => (
                   <Td key={columnIndex}>{truncateText(row[column] + '')}</Td>
@@ -75,15 +64,6 @@ const TableGeneric = ({
           </Tbody>
         </Table>
       </TableContainer>
-      {isOpen && (
-        <DrawerEdit
-          isOpen={isOpen}
-          onClose={onClose}
-          header={'Panel de edición'}
-          data={rowSelect}
-          handleUpdate={handleUpdate}
-        />
-      )}
     </>
   )
 }
