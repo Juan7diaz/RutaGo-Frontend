@@ -1,6 +1,13 @@
 import React from 'react'
 import TableGeneric from '../components/table/TableGeneric'
-import { deleteBusroute, getBusroutes, updateBusroute } from '../../services/busroute'
+import {
+  createBusroute,
+  deleteBusroute,
+  getBusroutes,
+  updateBusroute
+} from '../../services/busroute'
+import DrawerAdmin from '../components/table/DrawerAdmin'
+import { RiAddFill } from 'react-icons/ri'
 
 const TableBusRoute = () => {
   const [arrRoutes, setArrRoutes] = React.useState([])
@@ -32,13 +39,28 @@ const TableBusRoute = () => {
     setCheckAgain(!checkAgain)
   }
 
+  const handleCreate = async (data) => {
+    data.route = JSON.parse(data.route)
+    await createBusroute(data)
+    setCheckAgain(!checkAgain)
+  }
+
   return (
-    <TableGeneric
-      columns={columns}
-      rows={arrRoutes}
-      handleUpdate={handleUpdate}
-      handleDelete={handleDelete}
-    />
+    <>
+      <DrawerAdmin
+        header={'Panel de creación'}
+        initialForm={{ name: '', isActive: 'true', route: '' }}
+        handleAction={handleCreate}
+        icon={<RiAddFill/>}
+        colorScheme={'teal'}
+      />
+      <TableGeneric
+        columns={columns}
+        rows={arrRoutes}
+        handleUpdate={handleUpdate}
+        handleDelete={handleDelete}
+      />
+    </>
   )
 }
 
