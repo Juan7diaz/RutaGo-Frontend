@@ -1,6 +1,6 @@
 import React from 'react'
 import TableGeneric from '../components/table/TableGeneric'
-import { getBusroutes, updateBusroute } from '../../services/busroute'
+import { deleteBusroute, getBusroutes, updateBusroute } from '../../services/busroute'
 
 const TableBusRoute = () => {
   const [arrRoutes, setArrRoutes] = React.useState([])
@@ -28,12 +28,19 @@ const TableBusRoute = () => {
     console.log('handleUpdate', response)
   }
 
-  const handleDelete = () => {
-    console.log('handleDelete')
+  const handleDelete = async (id) => {
+    const response = await deleteBusroute(id)
+    setCheckAgain(!checkAgain)
+    console.log('handleDelete', response)
   }
 
   return (
-    <TableGeneric columns={columns} rows={arrRoutes} handleUpdate={handleUpdate} handleDelete={handleDelete} />
+    <TableGeneric
+      columns={columns}
+      rows={arrRoutes}
+      handleUpdate={handleUpdate}
+      handleDelete={handleDelete}
+    />
   )
 }
 

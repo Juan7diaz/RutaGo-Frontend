@@ -17,3 +17,7 @@ export const createBusroute = async (busroute) => {
 export const updateBusroute = async (data) => {
   return await axios.put(BASE_URL_WITH_AUTH, data)
 }
+
+export const deleteBusroute = async (id) => {
+  return await axios.delete(`${BASE_URL_WITH_AUTH}/${id}`)
+}

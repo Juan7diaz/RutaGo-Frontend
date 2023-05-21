@@ -39,7 +39,12 @@ const DrawerEdit = ({ isOpen, onClose, header, data = {}, handleUpdate }) => {
 
   return (
     <>
-      <Drawer size={'md'} isOpen={isOpen} placement="right" onClose={handleCancel}>
+      <Drawer
+        size={'md'}
+        isOpen={isOpen}
+        placement="right"
+        onClose={handleCancel}
+      >
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton />
@@ -49,15 +54,24 @@ const DrawerEdit = ({ isOpen, onClose, header, data = {}, handleUpdate }) => {
               {Object.keys(data).map((item, index) => (
                 <Box key={index}>
                   <FormLabel htmlFor="username">{item}</FormLabel>
-                  <Input id={item} value={formatText(formState[item])} name={item} onChange={onInputChange}/>
+                  <Input
+                    id={item}
+                    value={formatText(formState[item])}
+                    name={item}
+                    onChange={onInputChange}
+                  />
                 </Box>
               ))}
             </Stack>
           </DrawerBody>
 
           <DrawerFooter>
-            <Button variant="outline" mr={3} onClick={handleCancel}>Cancelar</Button>
-            <Button colorScheme="blue" onClick={handleSave}>Guardar</Button>
+            <Button variant="outline" mr={3} onClick={handleCancel}>
+              Cancelar
+            </Button>
+            <Button colorScheme="blue" onClick={handleSave}>
+              Guardar
+            </Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
