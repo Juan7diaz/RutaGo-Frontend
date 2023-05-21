@@ -18,8 +18,7 @@ const TableGeneric = ({
   caption,
   columns = [],
   rows = [],
-  isEditable = true,
-  isRemovable = true,
+
   handleDelete,
   handleUpdate
 }) => {
@@ -30,8 +29,8 @@ const TableGeneric = ({
           <TableCaption>{caption}</TableCaption>
           <Thead>
             <Tr>
-              {isEditable && <Th>Editar</Th>}
-              {isRemovable && <Th>Borrar</Th>}
+              {handleUpdate && <Th>Editar</Th>}
+              {handleDelete && <Th>Borrar</Th>}
               {columns.map((column, index) => (
                 <Th key={index}>{column}</Th>
               ))}
@@ -40,18 +39,18 @@ const TableGeneric = ({
           <Tbody>
             {rows.map((row, index) => (
               <Tr key={index}>
-                {isEditable && (
+                {handleUpdate && (
                   <Td>
                     <DrawerEdit
                       colorScheme={'blue'}
                       header={'Panel de edición'}
-                      initialForm={row}
+                      data={row}
                       handleAction={handleUpdate}
                       icon={<AiOutlineEdit />}
                     />
                   </Td>
                 )}
-                {isRemovable && (
+                {handleDelete && (
                   <Td>
                     <AlertDialog id={row?.id} handleDelete={handleDelete} />
                   </Td>
