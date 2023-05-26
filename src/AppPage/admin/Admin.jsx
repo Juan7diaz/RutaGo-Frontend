@@ -2,11 +2,12 @@ import React from 'react'
 import NavbarAndFooterLayout from '../../layout/NavbarAndFooterLayout'
 import PanelTabs from '../components/panel/PanelTabs'
 import TableBusRoute from './TableBusRoute'
+import TableUsers from './TableUsers'
 
 const arrTabs = [
   {
     name: 'Usuarios',
-    content: 'tabla de usuarios'
+    content: <TableUsers />
   },
   {
     name: 'Rutas',
