@@ -30,7 +30,8 @@ const TableBusRoute = () => {
   }
 
   const handleUpdate = async (data) => {
-    await updateBusroute(data)
+    const id = data.id
+    await updateBusroute(id, data)
     setCheckAgain(!checkAgain)
   }
 
