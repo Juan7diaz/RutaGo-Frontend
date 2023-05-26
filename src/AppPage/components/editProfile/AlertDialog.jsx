@@ -12,6 +12,7 @@ import {
 import { deleteUser } from '../../../services/userServices'
 import { useNavigate } from 'react-router-dom'
 import { USER_SESSION, USER_TOKEN } from '../../../types/localStorage.js'
+import { decodedToken } from '../../../helpers/decodedToken'
 
 const openAlertDialog = ({ title, subtitle, isOpen, setIsOpen }) => {
   const navigate = useNavigate()
@@ -19,7 +20,8 @@ const openAlertDialog = ({ title, subtitle, isOpen, setIsOpen }) => {
   const cancelRef = React.useRef()
 
   const handleDelete = async () => {
-    const response = await deleteUser()
+    const { uid } = decodedToken(localStorage.getItem(USER_TOKEN))
+    const response = await deleteUser(uid)
     if (response.ok) {
       localStorage.removeItem(USER_SESSION)
       localStorage.removeItem(USER_TOKEN)

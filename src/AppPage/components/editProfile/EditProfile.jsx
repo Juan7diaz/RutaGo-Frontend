@@ -3,19 +3,21 @@ import { Box, Heading, Text, VStack } from '@chakra-ui/react'
 import DengerZone from './DengerZone'
 import { getUser } from '../../../services/userServices'
 import InputText from './InputText'
+import { USER_TOKEN } from '../../../types/localStorage'
+import { decodedToken } from '../../../helpers/decodedToken'
 
 const EditProfile = () => {
   const [dataUser, setDataUser] = useState({})
   const [reloadUserData, setReloadUserData] = useState(false) // no es lo mejor, pero por ahora funciona
 
   const getUserData = async () => {
-    const user = await getUser()
+    const { uid } = decodedToken(localStorage.getItem(USER_TOKEN))
+    const user = await getUser(uid)
     setDataUser(user)
   }
 
   useEffect(() => {
     getUserData()
-    console.log('hola')
   }, [reloadUserData])
 
   return (

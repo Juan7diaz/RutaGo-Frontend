@@ -14,6 +14,8 @@ import {
   useToast
 } from '@chakra-ui/react'
 import { updateUser } from '../../../services/userServices'
+import { USER_TOKEN } from '../../../types/localStorage'
+import { decodedToken } from '../../../helpers/decodedToken'
 const ModalForm = ({ isOpen, onClose, label, keyDB, data, setReloadUserData }) => {
   const initialRef = React.useRef(null)
   const toast = useToast()
@@ -33,7 +35,8 @@ const ModalForm = ({ isOpen, onClose, label, keyDB, data, setReloadUserData }) =
     }
 
     const data = { [keyDB]: value }
-    const response = await updateUser(data)
+    const { uid } = decodedToken(localStorage.getItem(USER_TOKEN))
+    const response = await updateUser(uid, data)
     toast({
       title: response.ok ? 'Enhorabuena' : 'Error',
       description: response.message,
