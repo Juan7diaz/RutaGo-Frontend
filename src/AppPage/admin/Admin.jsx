@@ -3,6 +3,7 @@ import NavbarAndFooterLayout from '../../layout/NavbarAndFooterLayout'
 import PanelTabs from '../components/panel/PanelTabs'
 import TableBusRoute from './TableBusRoute'
 import TableUsers from './TableUsers'
+import TableRole from './TableRole'
 
 const arrTabs = [
   {
@@ -14,11 +15,8 @@ const arrTabs = [
     content: <TableBusRoute />
   },
   {
-    name: 'Comentarios',
-    content: 'tabla de comentarios'
-  }, {
     name: 'Rol',
-    content: 'tabla de rol'
+    content: <TableRole />
   }
 ]
 
