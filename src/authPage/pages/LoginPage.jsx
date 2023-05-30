@@ -8,6 +8,7 @@ import ButtonForm from '../../common/form/ButtonForm'
 import InputForm from '../../common/form/InputForm'
 import HeadingForm from '../../common/form/HeadingForm'
 import { USER_SESSION, USER_TOKEN } from '../../types/localStorage.js'
+import { GoogleSignIn } from '../../common/googleSignIn/GoogleSignIn'
 
 const LoginPage = () => {
   const { formState, onInputChange } = useForm({ email: '', password: '' })
@@ -80,6 +81,7 @@ const LoginPage = () => {
             handleSubmit={handleSubmit}
             label="Iniciar Sesión"
           />
+          <GoogleSignIn />
           <Text>
             ¿No tienes una cuenta?{' - '}
             <Link to="/auth/register">Registrate</Link>

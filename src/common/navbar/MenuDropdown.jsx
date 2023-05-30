@@ -11,7 +11,13 @@ import { Link } from 'react-router-dom'
 
 const MenuDropdown = ({ menuItems }) => {
   const handleLogout = () => {
-    console.log('eliminando')
+    const email = JSON.parse(localStorage.getItem(USER_SESSION)).email
+
+    window.google?.accounts?.id?.revoke(email, done => {
+      localStorage.removeItem(USER_SESSION)
+      localStorage.removeItem(USER_TOKEN)
+    })
+
     localStorage.removeItem(USER_SESSION)
     localStorage.removeItem(USER_TOKEN)
   }
@@ -27,7 +33,7 @@ const MenuDropdown = ({ menuItems }) => {
       <MenuList>
         {
           menuItems.map((item, index) => (
-            <MenuItem icon={item.icon} key={index} as={Link} to={item.to} onClick={ item.onCLick && handleLogout }>
+            <MenuItem icon={item.icon} key={index} as={Link} to={item.to} onClick={ item.onClick && handleLogout }>
               {item.name}
             </MenuItem>
           ))

@@ -21,7 +21,7 @@ export const ACTIVE_USER = [
   {
     name: 'Cerrar sesión',
     to: '/',
-    onCLick: true
+    onClick: true
   }
 ]
 
@@ -45,7 +45,7 @@ export const ACTIVE_ADMIN = [
   {
     name: 'Cerrar sesión',
     to: '/',
-    onCLick: true
+    onClick: true
   }
 ]
 
