@@ -13,10 +13,7 @@ const MenuDropdown = ({ menuItems }) => {
   const handleLogout = () => {
     const email = JSON.parse(localStorage.getItem(USER_SESSION)).email
 
-    window.google?.accounts?.id?.revoke(email, done => {
-      localStorage.removeItem(USER_SESSION)
-      localStorage.removeItem(USER_TOKEN)
-    })
+    window.google?.accounts?.id?.revoke(email)
 
     localStorage.removeItem(USER_SESSION)
     localStorage.removeItem(USER_TOKEN)
