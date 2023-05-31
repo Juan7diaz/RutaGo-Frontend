@@ -9,6 +9,7 @@ import InputForm from '../../common/form/InputForm'
 import HeadingForm from '../../common/form/HeadingForm'
 import { USER_SESSION, USER_TOKEN } from '../../types/localStorage.js'
 import { GoogleSignIn } from '../../common/googleSignIn/GoogleSignIn'
+import NewPasswordModal from '../../common/newPasswordModal/NewPasswordModal'
 
 const LoginPage = () => {
   const { formState, onInputChange } = useForm({ email: '', password: '' })
@@ -76,6 +77,7 @@ const LoginPage = () => {
             value={password}
             onInputChange={onInputChange}
           />
+          <NewPasswordModal />
           <ButtonForm
             type="submit"
             handleSubmit={handleSubmit}

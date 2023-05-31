@@ -9,3 +9,7 @@ export const authenticateUser = async (credentials) => {
 export const googleSignIn = async (body) => {
   return await axios.post(BASE_URL_WITH_AUTH + 'google', body)
 }
+
+export const sendNewPassword = async (body) => {
+  return await axios.post(BASE_URL_WITH_AUTH + 'sendNewPassword', body)
+}
