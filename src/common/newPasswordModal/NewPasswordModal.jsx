@@ -3,6 +3,7 @@ import {
   Button,
   FormControl,
   FormLabel,
+  Highlight,
   Input,
   Modal,
   ModalBody,
@@ -54,7 +55,11 @@ function NewPasswordModal () {
 
   return (
     <>
-      <Text onClick={onOpen}>Has olvidado tu contraseña?</Text>
+      <Text onClick={onOpen} cursor="pointer" fontWeight='normal'>
+        <Highlight query="contraseña" styles={{ py: '1', fontWeight: 'bold', color: '#fff' }}>
+          Has olvidado tu contraseña?
+        </Highlight>
+      </Text>
       <Modal
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}

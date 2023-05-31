@@ -34,13 +34,16 @@ export const GoogleSignIn = () => {
       })
 
       window?.google?.accounts?.id?.renderButton(document.getElementById('signinInDiv'), {
-        theme: 'outline',
-        size: 'large'
+        theme: 'filled_blue',
+        size: 'large',
+        text: 'signup_with',
+        width: '250px',
+        shape: 'pill'
       })
     }
 
     initializeGoogleSignIn()
   }, [])
 
-  return <div id="signinInDiv"></div>
+  return <div id="signinInDiv" style={{ display: 'flex', justifyContent: 'center' }}></div>
 }

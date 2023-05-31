@@ -29,7 +29,12 @@ const RegisterPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (firstName.trim() === '' || lastName.trim() === '' || email.trim() === '' || password.trim() === '') {
+    if (
+      firstName.trim() === '' ||
+      lastName.trim() === '' ||
+      email.trim() === '' ||
+      password.trim() === ''
+    ) {
       toast({
         title: 'Campos Incompletos',
         description: 'Por favor rellene todos los campos',
